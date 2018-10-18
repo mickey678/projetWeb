@@ -1,5 +1,6 @@
 <?php
 require '../vendor/autoload.php';
+require 'getAPIopenfoodFact/getApiopenFoodFact.php';
 
 //postgres
 $dbName = getenv('DB_NAME');

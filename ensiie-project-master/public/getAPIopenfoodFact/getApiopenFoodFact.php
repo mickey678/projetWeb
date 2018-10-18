@@ -14,15 +14,15 @@ echo '
             <input type="submit" value="Chercher">
         </form>
      ';
-$codebarre = $_GET['codeBarre'];
+
 $action = (empty($_GET['codeBarre'])) ? FALSE : $_GET['codeBarre'];
 if($action)
 {
-    if($response = @file_get_contents(@"https://fr.openfoodfacts.org/produit/".$codebarre)==FALSE)
+    if($response = @file_get_contents(@"https://fr.openfoodfacts.org/produit/".$action)==FALSE)
     {
             echo' Le produit n esxiste pas dans la base de données !';
     }else {
-            $response = file_get_contents("https://fr.openfoodfacts.org/produit/" .$codebarre, NULL, NULL, 338, 105);
+            $response = file_get_contents("https://fr.openfoodfacts.org/produit/" .$action, NULL, NULL, 338, 105);
             echo '<h1>'.$response.'</h1>';
     }
 }else{
@@ -30,15 +30,3 @@ if($action)
 }
 ?>
 
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About

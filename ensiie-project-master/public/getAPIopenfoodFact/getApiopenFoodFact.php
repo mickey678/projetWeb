@@ -28,3 +28,7 @@ if($action)
     echo 'Merci de saisir un code barre enfoirée ! ';
 }
 ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> master

@@ -1,8 +1,8 @@
 <?php
 require '../vendor/autoload.php';
 //require 'getAPIopenfoodFact/getApiopenFoodFact.php';
-// require 'sendMail/sendMail.php';
-
+//require 'sendMail/sendMail.php';
+require 'header/header.php';  
 //postgres
 $dbName = getenv('DB_NAME');
 $dbUser = getenv('DB_USER');

@@ -1,0 +1,41 @@
+.navbar.navbar-light{
+position:relative;
+background:url("navbar/navbar.jpg");
+background-repeat: repeat-x;
+background-size: 70px;
+
+}
+#navbarFirstItem{
+    position:absolute;
+    color:red;
+    top:14px;
+    left:40%;
+
+ 
+}
+#navbarSecondItem{
+    position:absolute;
+    top:14px;
+    left:45.5%;
+  
+  
+}
+#navbarThirdItem{
+    position:absolute;
+    top:14px;
+    left:51%;
+    
+}
+#navbarFourthItem{
+    position:absolute;
+    top:14px;
+    left:56.5%;
+}
+#ensiie{
+    position:absolute;
+    top:1px;
+    left:85%;
+    color:rgb(119, 67, 67);
+    font-size: 45px;
+    font-family: 'Faster One', cursive;
+}

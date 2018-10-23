@@ -2,7 +2,8 @@
 require '../vendor/autoload.php';
 //require 'getAPIopenfoodFact/getApiopenFoodFact.php';
 //require 'sendMail/sendMail.php';
-require 'header/header.php';  
+//require 'header/header.php';  
+require 'adminPage/adminPage.php';
 //postgres
 $dbName = getenv('DB_NAME');
 $dbUser = getenv('DB_USER');
@@ -12,16 +13,8 @@ $userRepository = new \User\UserRepository($connection);
 $users = $userRepository->fetchAll();
 ?>
 
-<html>
-<head>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
-
 <div class="container">
     <h3><?php echo 'Hello world from Docker! php' . PHP_VERSION; ?></h3>
-
     <table class="table table-bordered table-hover table-striped">
         <thead style="font-weight: bold">
             <td>#</td>
@@ -40,5 +33,6 @@ $users = $userRepository->fetchAll();
         <?php endforeach; ?>
     </table>
 </div>
+
 </body>
 </html>

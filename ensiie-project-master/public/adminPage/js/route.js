@@ -13,7 +13,22 @@ define(function () {
             require(["mickeyJS"],function (sammyJS) {
                    var sammy = sammyJS('#sammyJS',function () {
                        this.get("#/",function () {
-                           $("#content").html("depuis diese");
+                        $.get( "http://localhost:8080/getDataPHP.php", function(data) {
+                          $("#content").html(data);
+                          })
+                            .done(function(data) {
+                              
+                            })
+                            .fail(function(data) {
+                                console.log(data);
+                            })
+                            .always(function(data) {
+                              
+                            });
+                   
+                        
+
+                          
                        });
                        this.get("#/details",function () {
                            var page = this.params.page;

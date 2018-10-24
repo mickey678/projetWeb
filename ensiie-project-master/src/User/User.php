@@ -11,7 +11,7 @@ class User
     /**
      * @var string
      */
-    private $firstname;
+    private $name;
 
     /**
      * @var string
@@ -19,10 +19,14 @@ class User
     private $lastname;
 
     /**
-     * @var \DateTimeInterface
+     * @var \username
      */
-    private $birthday;
+    private $username;
 
+      /**
+     * @var \mail
+     */
+    private $mail;
     /**
      * @return int
      */
@@ -44,18 +48,18 @@ class User
     /**
      * @return string
      */
-    public function getFirstname()
+    public function getName()
     {
-        return $this->firstname;
+        return $this->name;
     }
 
     /**
      * @param string $firstname
      * @return User
      */
-    public function setFirstname($firstname)
+    public function setName($name)
     {
-        $this->firstname = $firstname;
+        $this->name = $name;
         return $this;
     }
 
@@ -78,20 +82,20 @@ class User
     }
 
     /**
-     * @return \DateTimeInterface
+     * @return \username
      */
-    public function getBirthday(): \DateTimeInterface
+    public function getUsername() //: \DateTimeInterface
     {
-        return $this->birthday;
+        return $this->username;
     }
 
     /**
      * @param \DateTimeInterface $birthday
      * @return User
      */
-    public function setBirthday(\DateTimeInterface $birthday)
+    public function setUsername( $username)
     {
-        $this->birthday = $birthday;
+        $this->username = $username;
         return $this;
     }
 
@@ -100,15 +104,16 @@ class User
      * @return int
      * @throws \OutOfRangeException
      */
-    public function getAge(): int
+    public function getMail()
     {
-        $now = new \DateTime();
-
-        if ($now < $this->getBirthday()) {
-            throw new \OutOfRangeException('Birthday in the future');
-        }
-
-        return $now->diff($this->getBirthday())->y;
+        return $this->mail;
     }
+    
+    public function setMail($mail)
+    {
+        return $this->mail = $mail;
+    }
+
+
 }
 

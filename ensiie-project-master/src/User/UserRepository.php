@@ -24,10 +24,10 @@ class UserRepository
             $user = new User();
             $user
                 ->setId($row->id)
-                ->setFirstname($row->firstname)
+                ->setName($row->name)
                 ->setLastname($row->lastname)
-                ->setBirthday(new \DateTimeImmutable($row->birthday));
-
+                ->setUsername($row->username)
+                ->setMail($row->mail);
             $users[] = $user;
         }
 
@@ -36,3 +36,4 @@ class UserRepository
 
 
 }
+// new \DateTimeImmutable($row->birthday));

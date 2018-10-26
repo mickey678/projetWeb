@@ -1,6 +1,32 @@
+<?php
+$checkIsEmptyName = (empty($_POST["mail"])) ? FALSE : ($_POST["mail"]);
+$chekIsEmtyPassword=(empty($_POST["password"])) ? FALSE : ($_POST["password"]);
+$buttonClickedMail = (isset($_POST['mail'])) ? ($_POST['mail'])  :  FALSE;
+$buttonClickedPassword = (isset($_POST['password']))? ($_POST['password']) :FALSE  ;
+$checkIsEmptyNameBool = (empty($_POST["mail"])) ? FALSE :TRUE;
+$chekIsEmtyPasswordBool=(empty($_POST["password"])) ? FALSE : TRUE;
+$bool = FALSE;
+if($checkIsEmptyNameBool && $chekIsEmtyPasswordBool){
+	require '../../vendor/autoload.php';
+	$dbName = getenv('DB_NAME');
+	$dbUser = getenv('DB_USER');
+	$dbPassword = getenv('DB_PASSWORD');
+	$connection = new PDO("pgsql:host=postgres user=$dbUser dbname=$dbName password=$dbPassword");
+	$userRepository = new \User\UserRepository($connection);
+	$users = $userRepository->fetchAll();
+	$userInDataBase = "";
+	$PaswordIndatabase = "";
+        foreach ($users as $user){
+			$PaswordIndatabase =$user->getPassword();
+			$userInDataBase=$user->getMail();
+			if($PaswordIndatabase == $chekIsEmtyPassword && $userInDataBase == $checkIsEmptyName){
+				$bool=TRUE;
+				}
+		}
+}
+?>
 <!DOCTYPE html>
 <html>
-
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -161,7 +187,7 @@ body{
 			<div>Smart<span>Fridge</span></div>
 		</div>
 		<br>
-		<form action="../authPage/auth.php" method="post" class="login">
+		<form action="/adminPage/adminPage.php" method="post" class="login">
 				<input type="text" placeholder="mail" name="mail"><br />
 				<input type="password" placeholder="password" name="password"><br>
 				<p><p>
@@ -170,48 +196,3 @@ body{
   <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
 </body>
 </html>
-
-<?php
-
-$checkIsEmptyName = (empty($_POST["mail"])) ? FALSE : ($_POST["mail"]);
-$chekIsEmtyPassword=(empty($POST["password"])) ? FALSE : ($POST["password"]);
-
-$buttonClickedMail = (isset($_POST['mail'])) ? ($_POST['mail'])  :  FALSE;
-$buttonClickedPassword = (isset($_POST['password']))? ($_POST['password']) :FALSE  ;
-
-var_dump($buttonClickedMail);
-var_dump($buttonClickedPassword);
-
-if($buttonClickedMail && $buttonClickedPassword){
-	require '../../vendor/autoload.php';
-	$dbName = getenv('DB_NAME');
-	$dbUser = getenv('DB_USER');
-	$dbPassword = getenv('DB_PASSWORD');
-	$connection = new PDO("pgsql:host=postgres user=$dbUser dbname=$dbName password=$dbPassword");
-	$userRepository = new \User\UserRepository($connection);
-	$users = $userRepository->fetchAll();
-	$userInDataBase = "";
-	$PaswordIndatabase = "";
-	$bool = 0;
-        $userJSON = array();
-        foreach ($users as $user){
-			$PaswordIndatabase =$user->getPassword();
-			$userInDataBase=$user->getMail();
-			var_dump($PaswordIndatabase);
-			var_dump($userInDataBase);
-			if($PaswordIndatabase == $chekIsEmtyPassword && $userInDataBase == $checkIsEmptyName){
-				$bool=1;
-			}
-}
-
-	if($bool=1)
-	{
-		echo'<h1>Yes baby</h1>';
-
-	}else{
-		echo '<h1>Incorrect user/password</h1>';
-	}
-
-}
-
-?>

@@ -1,12 +1,11 @@
-
-CREATE TABLE public.User(
+CREATE TABLE public.UserF(
 	Id         SERIAL NOT NULL ,
 	Name       VARCHAR (50) NOT NULL ,
 	Password   VARCHAR (50) NOT NULL,
 	LastName   VARCHAR (50) NOT NULL ,
 	Username   VARCHAR (50) NOT NULL ,
 	Mail       VARCHAR (50) NOT NULL  ,
-	CONSTRAINT User_PK PRIMARY KEY (Id)
+	CONSTRAINT UserF_PK PRIMARY KEY (Id)
 )WITHOUT OIDS;
 
 CREATE TABLE public.Child(
@@ -47,16 +46,15 @@ CREATE TABLE public.Is(
 	CONSTRAINT Is_PK PRIMARY KEY (IdChild,Id)
 
 	,CONSTRAINT Is_Child_FK FOREIGN KEY (IdChild) REFERENCES public.Child(IdChild)
-	,CONSTRAINT Is_User0_FK FOREIGN KEY (Id) REFERENCES public.User(Id)
+	,CONSTRAINT Is_UserF0_FK FOREIGN KEY (Id) REFERENCES public.UserF(Id)
 )WITHOUT OIDS;
 
 CREATE TABLE public.Can_be(
 	IdParent   INT  NOT NULL ,
 	Id         INT  NOT NULL  ,
 	CONSTRAINT Can_be_PK PRIMARY KEY (IdParent,Id)
-
 	,CONSTRAINT Can_be_Parent_FK FOREIGN KEY (IdParent) REFERENCES public.Parent(IdParent)
-	,CONSTRAINT Can_be_User0_FK FOREIGN KEY (Id) REFERENCES public.User(Id)
+	,CONSTRAINT Can_be_UserF0_FK FOREIGN KEY (Id) REFERENCES public.UserF(Id)
 )WITHOUT OIDS;
 
 CREATE TABLE public.Consumed(
@@ -65,7 +63,7 @@ CREATE TABLE public.Consumed(
 	CONSTRAINT Consumed_PK PRIMARY KEY (IdFood,Id)
 
 	,CONSTRAINT Consumed_Food_FK FOREIGN KEY (IdFood) REFERENCES public.Food(IdFood)
-	,CONSTRAINT Consumed_User0_FK FOREIGN KEY (Id) REFERENCES public.User(Id)
+	,CONSTRAINT Consumed_UserF0_FK FOREIGN KEY (Id) REFERENCES public.UserF(Id)
 )WITHOUT OIDS;
 
 CREATE TABLE public.Watch(
@@ -74,7 +72,7 @@ CREATE TABLE public.Watch(
 	CONSTRAINT Watch_PK PRIMARY KEY (IdFood,Id)
 
 	,CONSTRAINT Watch_Food_FK FOREIGN KEY (IdFood) REFERENCES public.Food(IdFood)
-	,CONSTRAINT Watch_User0_FK FOREIGN KEY (Id) REFERENCES public.User(Id)
+	,CONSTRAINT Watch_UserF0_FK FOREIGN KEY (Id) REFERENCES public.UserF(Id)
 )WITHOUT OIDS;
 
 CREATE TABLE public.Waste(
@@ -83,7 +81,7 @@ CREATE TABLE public.Waste(
 	CONSTRAINT Waste_PK PRIMARY KEY (IdFood,Id)
 
 	,CONSTRAINT Waste_Food_FK FOREIGN KEY (IdFood) REFERENCES public.Food(IdFood)
-	,CONSTRAINT Waste_User0_FK FOREIGN KEY (Id) REFERENCES public.User(Id)
+	,CONSTRAINT Waste_UserF0_FK FOREIGN KEY (Id) REFERENCES public.UserF(Id)
 )WITHOUT OIDS;
 
 CREATE TABLE public.Delete(
@@ -106,7 +104,19 @@ CREATE TABLE public.Add(
 
 
 
-INSERT INTO "user"(name,lastname,username,password, mail) VALUES ('Dominic', 'Toretto', 'mickey','mickeyPass','mickey@gmail.com');
+INSERT INTO "userf"(id,name,lastname,username,password, mail) VALUES (1,'Dominic', 'Toretto', 'dom','mickeyPass','dom@gmail.com');
+INSERT INTO "parent"(IdParent) VALUES (1);
+INSERT INTO "can_be"(id,idParent) VALUES(1,1);
+INSERT INTO "food"(IdFood, Name,Type,Price,Quantity,CodeBarre) VALUES(1,'Ice tea','Boisson',2,1,124632);
+INSERT INTO "add"(IdFood,IdParent) VALUES (1,1);
+INSERT INTO "watch"(IdFood,id) VALUES (1,1);
+
+INSERT INTO "userf"(id,name,lastname,username,password, mail) VALUES (2,'Mickey', 'TheBest', 'mickey','mickeyPass','mickey@gmail.com');
+INSERT INTO "parent"(IdParent) VALUES (2);
+INSERT INTO "can_be"(id,idParent) VALUES(2,2);
+INSERT INTO "food"(IdFood, Name,Type,Price,Quantity,CodeBarre) VALUES(2,'Coockie','Gateau',6,4,3546542);
+INSERT INTO "add"(IdFood,IdParent) VALUES (2,2);
+INSERT INTO "watch"(IdFood,id) VALUES (2,2);
 
 
 /*

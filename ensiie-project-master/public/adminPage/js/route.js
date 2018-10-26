@@ -19,11 +19,13 @@ define(function () {
                           })                       
                             .done(function(data) {
                                 var dataJ = JSON.parse(data);
-                                $("#bonjour").html("Bonjour : " + dataJ.name);
-
+                              
+                                $("#content").html(
+                                    
+                                )
                             })
                             .fail(function(data) {
-                                console.log(data);
+                              
                                
                             })
                             .always(function(data) {

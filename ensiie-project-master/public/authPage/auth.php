@@ -162,8 +162,8 @@ body{
 		</div>
 		<br>
 		<form action="../adminPage/adminPage.php" method="post" class="login">
-				<input type="text" placeholder="mail" name="mail"><br />
-				<input type="password" placeholder="password" name="password"><br>
+				<input type="text" placeholder="mail" name="mail" value="email"><br />
+				<input type="password" placeholder="password" name="password" value="password"><br>
 				<p><p>
 				<button class="btn btn-online-secondary btn-lg"type="submit" value="Login"> Login</button>
 		</div>

@@ -16,7 +16,6 @@ if($checkIsEmptyNameBool && $chekIsEmtyPasswordBool){
 	$users = $userRepository->fetchAll();
 	$userInDataBase = "";
     $PaswordIndatabase = "";
-
         foreach ($users as $user){
 			$PaswordIndatabase =$user->getPassword();
 			$userInDataBase=$user->getMail();
@@ -30,12 +29,8 @@ if($bool==TRUE)
         require '../header/header.php';
         require '../adminPage/adminPageBody.php';
 }else{
-    
     echo '<br /> <h4>Password/Mail incorrect ! Please do it again !</h4>';
     echo'<br /> For back to the main page cilck here : <a href="../authPage/auth.php">  authetification</a>';
-
-
 }
-
 ?>         
 

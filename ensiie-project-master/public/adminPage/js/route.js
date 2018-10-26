@@ -11,24 +11,24 @@ define(function () {
         }
         sammyJS.prototype.executeSammyJS = function () {
             require(["mickeyJS"],function (sammyJS) {
-                   var sammy = sammyJS('#sammyJS',function () {
+                   var sammy = sammyJS('#content',function () { 
+                      
                        this.get("#/",function () {
-                        $.get( "http://localhost:8080/getDataPHP.php", function(data) {
-                          $("#content").html(data);
-                          })
+                        $.get( "http://192.168.254.136:8080/getDataPHP.php", function(data) {
+
+                          })                       
                             .done(function(data) {
-                              
+                                var dataJ = JSON.parse(data);
+                                $("#bonjour").html("Bonjour : " + dataJ.name);
+
                             })
                             .fail(function(data) {
                                 console.log(data);
+                               
                             })
                             .always(function(data) {
                               
                             });
-                   
-                        
-
-                          
                        });
                        this.get("#/details",function () {
                            var page = this.params.page;
@@ -38,9 +38,12 @@ define(function () {
                        this.get("#/details/:id",function () {
                            $("#content").html("id est : "+ this.params.id);
                        });
-                   })
+                    
+                    })  
+                 
                    $(function () {
                        sammy.run("#/");
+                      
                      
                    });
             })

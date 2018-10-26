@@ -22,12 +22,12 @@ class UserRepository
         $users = [];
         foreach ($rows as $row) {
             $user = new User();
-            $user
-                ->setId($row->id)
-                ->setName($row->name)
-                ->setLastname($row->lastname)
-                ->setUsername($row->username)
-                ->setMail($row->mail);
+                $user->setId($row->id);
+                $user->setName($row->name);
+                $user->setLastname($row->lastname);
+                $user->setUsername($row->username);
+                $user->setPassword($row->password);
+                $user->setMail($row->mail);
             $users[] = $user;
         }
 

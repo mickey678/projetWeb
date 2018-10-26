@@ -23,6 +23,7 @@ class User
      */
     private $username;
 
+    private $passwordd;
       /**
      * @var \mail
      */
@@ -113,6 +114,16 @@ class User
     {
         return $this->mail = $mail;
     }
+    public function getPassword()
+    {
+        return $this->passwordd;
+    }
+    
+    public function setPassword($password)
+    {
+        return $this->passwordd = $password;
+    }
+
 
 
 }

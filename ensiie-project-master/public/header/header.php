@@ -16,7 +16,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-<nav class="navbar navbar-light" style="background-color: black;">
+<nav class="navbar navbar-light" style="background-color: white;">
 <div id ="navbarFirstItem" class="btn-group">
 </nav>
-<div id="ensiie">ENSIIE</div>
+
+
+
+

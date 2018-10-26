@@ -14,7 +14,8 @@ define(function () {
                    var sammy = sammyJS('#sammyJS',function () {
                        this.get("#/",function () {
                         $.get( "http://localhost:8080/getDataPHP.php", function(data) {
-                          $("#content").html(data);
+                            var toJSON = JSON.parse(data);
+                          $("#bonjour").html("Bonjour : " + toJSON.name + "!");
                           })
                             .done(function(data) {
                               

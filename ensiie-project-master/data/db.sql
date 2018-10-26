@@ -2,6 +2,7 @@
 CREATE TABLE public.User(
 	Id         SERIAL NOT NULL ,
 	Name       VARCHAR (50) NOT NULL ,
+	PasswordD   VARCHAR (50) NOT NULL,
 	LastName   VARCHAR (50) NOT NULL ,
 	Username   VARCHAR (50) NOT NULL ,
 	Mail       VARCHAR (50) NOT NULL  ,
@@ -105,7 +106,7 @@ CREATE TABLE public.Add(
 
 
 
-INSERT INTO "user"(name, lastname,username, mail) VALUES ('Dominic', 'Toretto', 'mickey','mickey@gmail.com');
+INSERT INTO "user"(name, lastname,passwordD,username, mail) VALUES ('Dominic', 'Toretto','passwordMickey', 'mickey','mickey@gmail.com');
 
 
 /*

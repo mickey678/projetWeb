@@ -1,15 +1,8 @@
 .navbar.navbar-light{
 position:relative;
-background:url("navbar/navbar.jpg");
+background:url("navbar/navbar.jpeg");
 background-repeat: repeat-x;
-background-size: 70px;
+background-color: azure;
+background-size:200px; 
 }
 
-#ensiie{
-    width: 20px;
-    position:absolute;
-    left:80%;
-    color:rgb(119, 67, 67);
-    font-size: 55px;
-    font-family: 'Faster One', cursive;
-}

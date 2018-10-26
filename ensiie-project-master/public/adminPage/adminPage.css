@@ -11,79 +11,86 @@
     border:1px solid blue;
     /*background-color: white;/* #2597fa;*/
     border-radius: 10px;
-    width:200px;
-    height: 635px;
+    width:170px;
+    height: 500px;
     position: absolute;
     left:20px;
     font-family: 'Cookie', cursive;
-
+background-color:#337ab7;
 }
 #bonjour{
     font-family: 'Cookie', cursive;
-    font-size:70px;
+    font-size:30px;
+    display:inline-block;
+    position: absolute;
+    left:230px;
 }
 #createFood{
     border:1px solid blue;
     margin: 15px;
     background: url('icons/createIcon.png');
     background-repeat: no-repeat; 
-    background-size:70px; 
-    background-position: 25px;
+    background-size:60px; 
+    background-position: 28px 35px ;
     width: 130px;
-    height: 140px;
+    height: 110px;
     z-index: 1;
     position: absolute;
     font-size:28px;
-    left:20px;
+    left:3px;
     text-align: center;
+    background-color: azure;
 }
 #editFood{
-    top:155px;
+    top:120px;
     border:1px solid blue;
     margin: 15px;
     background: url('icons/editFood.png');
     background-repeat: no-repeat; 
-    background-size:70px; 
-    background-position: 25px;
+    background-size:60px; 
+    background-position: 35px 35px;
     width: 130px;
-    height: 140px;
+    height: 110px;
     z-index: 1;
     position: absolute;
     font-size:28px;
-    left:20px;
+    left:3px;
     text-align: center;
+    background-color: azure;
 }
 #deleteFood{
-    top:305px;
+    top:240px;
     border:1px solid blue;
     margin: 15px;
     background: url('icons/deleteFood.png');
     background-repeat: no-repeat; 
     background-size:70px; 
-    background-position: 25px;
+    background-position: 30px 35px;
     width: 130px;
-    height: 140px;
+    height: 110px;
     z-index: 1;
     position: absolute;
     font-size:28px;
-    left:20px;
+    left:3px;
     text-align: center;
+    background-color: azure;
 }
 #listFood{
-    top:460px;
+    top:358px;
     border:1px solid blue;
     margin: 15px;
     background: url('icons/fridge.jpeg');
     background-repeat: no-repeat; 
     background-size:70px; 
-    background-position: 25px;
+    background-position: 30px 35px;
     width: 130px;
-    height: 140px;
+    height: 110px;
     z-index: 1;
     position: absolute;
     font-size:25px;
-    left:20px;
+    left:3px;
     text-align: center;
+    background-color: azure;
 }
 .container{
     position: absolute;
@@ -94,7 +101,25 @@
     position: absolute;
     left:10%;
     display: block; 
-    width: 80%;
-    height: 500px;
+    width: 70%;
+    height: 400px;
     border:1px solid blue;
+}
+#ensiie{
+    width: 20px;
+    position:absolute;
+    left:95%;
+    color: #FFD700 ;
+    font-size: 55px;
+    font-family: 'Faster One', cursive;
+    display: inline-block;
+    top:55px;
+}
+#inlineBlock{
+    display: inline-block;
+}
+body{
+    width: 1300px;
+    height: 1000px;
+    background-color:#F0E68C;
 }

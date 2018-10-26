@@ -1,85 +1,44 @@
 <?php
-
-if ($_SESSION['name'] == " ") {
-   header('Location: ../index.php'); 
+$checkIsEmptyName = (empty($_POST["mail"])) ? FALSE : ($_POST["mail"]);
+$chekIsEmtyPassword=(empty($_POST["password"])) ? FALSE : ($_POST["password"]);
+$buttonClickedMail = (isset($_POST['mail'])) ? ($_POST['mail'])  :  FALSE;
+$buttonClickedPassword = (isset($_POST['password']))?($_POST['password']):FALSE;
+$checkIsEmptyNameBool = (empty($_POST["mail"])) ? FALSE :TRUE;
+$chekIsEmtyPasswordBool=(empty($_POST["password"])) ? FALSE : TRUE;
+$bool = FALSE;
+$nameOfUser = "";
+if($checkIsEmptyNameBool && $chekIsEmtyPasswordBool){
+	require '../../vendor/autoload.php';
+	$dbName = getenv('DB_NAME');
+	$dbUser = getenv('DB_USER');
+	$dbPassword = getenv('DB_PASSWORD');
+	$connection = new PDO("pgsql:host=postgres user=$dbUser dbname=$dbName password=$dbPassword");
+	$userRepository = new \User\UserRepository($connection);
+	$users = $userRepository->fetchAll();
+	$userInDataBase = "";
+    $PaswordIndatabase = "";
+        foreach ($users as $user){
+			$PaswordIndatabase =$user->getPassword();
+			$userInDataBase=$user->getMail();
+			if($PaswordIndatabase == $chekIsEmtyPassword && $userInDataBase == $checkIsEmptyName){
+				$bool=TRUE;
+				$nameOfUser=$user->getName();
+				}
+		}
 }
-require 'header/header.php';
-?>
-         <body>
-            <div id="page-wrapper" style="min-height: 829px;">
-                    <div class="row">
-                        <div class="col-lg-8" id="inlineBlock">
-                        <p id="ensiie">ENSIIE</p>
-                             <h1 class="page-header" id="bonjour"> </h1>
-                             
-                        </div>
-                <!-- /.col-lg-8 -->
-                    </div>
-                    <!-- /.row -->
-                            <div class="row" id="contener1">
-                                <div class="col-lg-4 col-md-6">
-                                   <div id="menu">
-                                       <div id="createFood">
-                                            Add food
-                                        </div>
-                                        <div id="editFood">
-                                            Edit food
-                                        </div>
-                                        <div id="deleteFood">
-                                            Delete food
-                                        </div>
-                                        <div id="listFood">
-                                            Look in fridge  
-                                        </div>
-                                   </div>
-                                </div>
-                            <div class="row" id="contener1">
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <i class="fa fa-comments fa-5x"></i>
-                                                </div>
-                                                <div class="col-xs-9 text-right">
-                                                    <div class="huge"></div>
-                                                    <div>Produits dans votre frigo</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <i class="fa fa-comments fa-5x"></i>
-                                                </div>
-                                                <div class="col-xs-9 text-right">
-                                                    <div class="huge" id="available"></div>
-                                                    <div>Produits dans votre frigo</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <i class="fa fa-comments fa-5x"></i>
-                                                </div>
-                                                <div class="col-xs-9 text-right">
-                                                    <div class="huge"></div>
-                                                    <div>Produits dans votre frigo</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                </div>
-            <div id="content">
-                frigo
-            </div>
+if($bool==TRUE)
+{
+        require '../header/header.php';
+		require '../adminPage/adminPageBody.php';		
+		echo
+		'
+		<script>
+		document.getElementById("bonjour").innerText= "Bonjour '.$nameOfUser.'";
+	  	</script>
+	  ';
+
+}else{
+    echo '<br /> <h4>Password/Mail incorrect ! Please do it again !</h4>';
+    echo'<br /> For back to the main page cilck here : <a href="../authPage/auth.php">  authetification</a>';
+}
+?>         

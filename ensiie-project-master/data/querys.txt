@@ -1,0 +1,12 @@
+
+// print foods of parent mickey;
+
+select food.name from food inner join watch on food.idfood=watch.idfood inner join userf on watch.id=userf.id and userf.name='Mickey';
+
+//print all of parents
+
+select userf.name from userf inner join can_be on userf.id=can_be.id inner join parent on can_be.idparent=parent.idparent;
+
+
+
+

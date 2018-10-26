@@ -11,7 +11,7 @@
     border:1px solid blue;
     /*background-color: white;/* #2597fa;*/
     border-radius: 10px;
-    width:170px;
+    width:160px;
     height: 500px;
     position: absolute;
     left:20px;
@@ -30,14 +30,14 @@ background-color:#337ab7;
     margin: 15px;
     background: url('icons/createIcon.png');
     background-repeat: no-repeat; 
-    background-size:60px; 
-    background-position: 28px 35px ;
+    background-size:70px; 
+    background-position: 25px 35px;
     width: 130px;
     height: 110px;
     z-index: 1;
     position: absolute;
     font-size:28px;
-    left:3px;
+    left:25px 35px;
     text-align: center;
     background-color: azure;
 }
@@ -47,14 +47,14 @@ background-color:#337ab7;
     margin: 15px;
     background: url('icons/editFood.png');
     background-repeat: no-repeat; 
-    background-size:60px; 
-    background-position: 35px 35px;
+    background-size:70px; 
+    background-position: 25px 35px;
     width: 130px;
     height: 110px;
     z-index: 1;
     position: absolute;
     font-size:28px;
-    left:3px;
+    left:20px 35px;
     text-align: center;
     background-color: azure;
 }
@@ -65,30 +65,30 @@ background-color:#337ab7;
     background: url('icons/deleteFood.png');
     background-repeat: no-repeat; 
     background-size:70px; 
-    background-position: 30px 35px;
+    background-position: 25px 35px;
     width: 130px;
     height: 110px;
     z-index: 1;
     position: absolute;
     font-size:28px;
-    left:3px;
+    left:20px 35px;
     text-align: center;
     background-color: azure;
 }
 #listFood{
-    top:358px;
+    top:360px;
     border:1px solid blue;
     margin: 15px;
     background: url('icons/fridge.jpeg');
     background-repeat: no-repeat; 
     background-size:70px; 
-    background-position: 30px 35px;
+    background-position: 25px 35px;
     width: 130px;
     height: 110px;
     z-index: 1;
     position: absolute;
     font-size:25px;
-    left:3px;
+    left:20px 35px;
     text-align: center;
     background-color: azure;
 }
@@ -99,27 +99,10 @@ background-color:#337ab7;
 #content{
     margin:120px;
     position: absolute;
-    left:10%;
+    left:5%;
     display: block; 
-    width: 70%;
-    height: 400px;
+    width: 50%;
+    height: 380px;
     border:1px solid blue;
-}
-#ensiie{
-    width: 20px;
-    position:absolute;
-    left:95%;
-    color: #FFD700 ;
-    font-size: 55px;
-    font-family: 'Faster One', cursive;
-    display: inline-block;
-    top:55px;
-}
-#inlineBlock{
-    display: inline-block;
-}
-body{
-    width: 1300px;
-    height: 1000px;
-    background-color:#F0E68C;
+    border-radius: 10px;
 }

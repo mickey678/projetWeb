@@ -12,6 +12,7 @@ $users = $userRepository->fetchAll();
                 $userJSON["id"] = $user->getId();
                 $userJSON["name"] = $user->getName();
                 $userJSON["lastname"] = $user->getLastname();
+                $userJSON["password"] = $user->getPassword();
                 $userJSON["username"] = $user->getMail();
                 $userJSON["passwordd"]=$user->getPassword();
             }

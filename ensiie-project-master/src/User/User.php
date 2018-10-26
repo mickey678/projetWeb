@@ -13,6 +13,8 @@ class User
      */
     private $name;
 
+    private $password;
+
     /**
      * @var string
      */
@@ -124,6 +126,9 @@ class User
         return $this->passwordd = $password;
     }
 
+
+
+  
 
 
 }

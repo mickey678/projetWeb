@@ -5,7 +5,7 @@ require '../vendor/autoload.php';
 //require 'header/header.php';  
 //require 'getDataPHP.php';
 //require 'adminPage/adminPage.php';
-require 'pageConnection/pageConnection.php';
+require 'authPage/auth.php';
 ?>
 
 </body>

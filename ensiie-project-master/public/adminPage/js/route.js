@@ -32,13 +32,10 @@ define(function () {
                     })  
                    $(function () {
                        sammy.run("#/");
-                      
-                     
                    });
             })
         };
         return sammyJS;
     }());
     return sammyJS;
-
 })

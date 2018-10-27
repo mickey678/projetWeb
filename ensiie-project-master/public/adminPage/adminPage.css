@@ -94,13 +94,14 @@
     display: inline-block;
 }
 #printDataDiv{
+    margin:10px;
     position: absolute;
     border:1px solid blue;
     width: 800px;
     height: 300px;
     overflow-x: scroll;
     overflow-y:scroll; 
-    top:35%;
+    top:50%;
     left:13%;
     padding: 15px;
     border-radius: 5px 5px 5px 5px ;

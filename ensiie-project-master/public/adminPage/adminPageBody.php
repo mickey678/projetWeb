@@ -10,16 +10,16 @@
                                 <div class="col-lg-2 col-md-1">
                                    <div id="menu">
                                        <div id="createFood">
-                                            Add food
+                                            <a href="#/addFood">Add food</a>
                                         </div>
                                         <div id="editFood">
-                                            Edit food
+                                            <a href="#/editFood">Edit food<a>
                                         </div>
                                         <div id="deleteFood">
-                                            Delete food
+                                            <a href="#/deleteFood">Delete food</a>
                                         </div>
                                         <div id="listFood">
-                                            Look in fridge  
+                                            <a href="#/">Look in fridge</a>  
                                         </div>
                                    </div>
                                 </div>

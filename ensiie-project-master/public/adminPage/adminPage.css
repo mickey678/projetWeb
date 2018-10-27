@@ -100,8 +100,16 @@
     border-radius: 10px;
 }
 #mickeyTab{
-    position: absolute;
-    left:10%;
-    top:350px;
     display: inline-block;
+}
+#printDataDiv{
+    position: absolute;
+    border:1px solid blue;
+    width: 800px;
+    height: 300px;
+    overflow-x: scroll;
+    overflow-y:scroll; 
+    top:35%;
+    left:13%;
+    padding: 15px;
 }

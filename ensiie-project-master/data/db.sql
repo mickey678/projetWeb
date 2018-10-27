@@ -7,7 +7,7 @@ CREATE TABLE public.UserF(
 	Mail       VARCHAR (50) NOT NULL  ,
 	CONSTRAINT UserF_PK PRIMARY KEY (Id)
 )WITHOUT OIDS;
-
+ 
 CREATE TABLE public.Child(
 	IdChild   SERIAL NOT NULL  ,
 	CONSTRAINT Child_PK PRIMARY KEY (IdChild)

@@ -167,6 +167,6 @@ body{
 				<p><p>
 				<button class="btn btn-online-secondary btn-lg"type="submit" value="Login"> Login</button>
 		</div>
-  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+
 </body>
 </html>

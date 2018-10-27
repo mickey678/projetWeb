@@ -18,9 +18,7 @@ define(function () {
                         $("#printDataDiv").html(content); 
                        });
                        this.get("#/addFood",function () {
-                
                         $("#printDataDiv").html("depuis add food : ");
-                       
                        });
                        this.get("#/editFood",function () {
                            var page = this.params.page;

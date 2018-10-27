@@ -35,7 +35,7 @@ if($checkIsEmptyNameBool && $chekIsEmtyPasswordBool){
 			<div id="printDataDiv">
 				 <table class="table table-bordered table-hover table-stpired" id="mickeyTab">
 				 <thead style="font-weight:bold">
-				 <th>#</th>
+				 <th>id</th>
 				 <td>Name</td>
 				 <td>Type</td>
 				 <td>Quantity</td>
@@ -57,7 +57,7 @@ if($checkIsEmptyNameBool && $chekIsEmtyPasswordBool){
 				</tr>
 				';
 			}
-		 echo '</tr></table></div>'; 
+		 echo '</table></div>'; 
 		}catch(Exception $ex){
 			$ex->getMessage();
 		}

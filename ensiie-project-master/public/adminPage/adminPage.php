@@ -9,6 +9,7 @@ $bool = FALSE;
 $nameOfUser = "";
 if($checkIsEmptyNameBool && $chekIsEmtyPasswordBool){
 	require '../../vendor/autoload.php';
+	include '../../src/Food/FoodRepository.php';
 	$dbName = getenv('DB_NAME');
 	$dbUser = getenv('DB_USER');
 	$dbPassword = getenv('DB_PASSWORD');
@@ -26,6 +27,45 @@ if($checkIsEmptyNameBool && $chekIsEmtyPasswordBool){
 
 				}
 		}
+		try{
+			$rows1 = $connection->query("SELECT * FROM food inner join watch on food.idfood=watch.idfood
+			inner join userf on watch.id=userf.id inner join can_be on userf.nameu='".$nameOfUser."'")->fetchAll(\PDO::FETCH_OBJ);
+		
+			$tab =array('
+				 <table class="table table-bordered table-hover table-stpired" id="mickeyTab">
+				 <thead style="font-weight:bold">
+				 <th class="col-lg-1 col-md-1">#</th>
+				 <td class="col-lg-1 col-md-1">Name</td>
+				 <td class="col-lg-1 col-md-1">Type</td>
+				 <td class="col-lg-1 col-md-1">Quantity</td>
+				 <td class="col-lg-1 col-md-1">Code barre</td>
+				 <td class="col-lg-1 col-md-1">Price</td>
+				 <td class="col-lg-1 col-md-1">Expiration date</td> 
+			</thead>');	 
+		$a=1;
+	
+		foreach($rows1 as $row11)
+			{
+				
+				 $tab[$a]='
+				<tr>
+				<td class="col-lg-1 col-md-1">'.$row11->idfood.'</td>
+				<td class="col-lg-1 col-md-1">'.$row11->namef.'</td>
+				<td class="col-lg-1 col-md-1">'.$row11->typet.'</td>
+				<td class="col-lg-1 col-md-1">'.$row11->quantity.'</td>
+				<td class="col-lg-1 col-md-1">'.$row11->codebarre.'</td>
+				<td class="col-lg-1 col-md-1">'.$row11->price.'</td>
+				<td class="col-lg-1 col-md-1">'.$row11->expirationdate.'</td>
+				</tr>
+				';
+				$a+=1;
+			}
+		 $tab[$a+1]='</tr></table>'; 
+		 echo($tab[0]);
+		 echo($tab[1]);
+		}catch(Exception $ex){
+			$ex->getMessage();
+		}
 }
 if($bool==TRUE)
 {
@@ -37,6 +77,10 @@ if($bool==TRUE)
 		document.getElementById("bonjour").innerText= "Bonjour '.$nameOfUser.'";
 	  	</script>
 	  ';
+
+
+	  
+
 }else{
     echo '<br /> <h4>Password/Mail incorrect ! Please do it again !</h4>';
     echo'<br /> For back to the main page cilck here : <a href="../authPage/auth.php">  authetification</a>';

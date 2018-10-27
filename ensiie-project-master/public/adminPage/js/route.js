@@ -12,12 +12,12 @@ define(function () {
         }
         sammyJS.prototype.executeSammyJS = function () {
             require(["mickeyJS"],function (sammyJS) {
-                   var sammy = sammyJS('#content',function () { 
-                      
+                   var sammy = sammyJS('#printDataDiv',function () { 
                        this.get("#/",function () {
                         $("#printDataDiv").html(content); 
                        });
                        this.get("#/addFood",function () {
+                        
                         $("#printDataDiv").html("depuis add food : ");
                        });
                        this.get("#/editFood",function () {
@@ -29,11 +29,8 @@ define(function () {
                         var page = this.params.page;
                         $("#printDataDiv").html("depuis delete foods: ");
                         console.log("delete food ");
-                    });
-           
-                    
+                    });   
                     })  
-                 
                    $(function () {
                        sammy.run("#/");
                       

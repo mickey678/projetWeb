@@ -30,6 +30,7 @@ class FoodRepository
                 $food->setCodeBarre($row->codebarre);
             $foods[] = $food;
         }
+       
 
         return $foods;
     }

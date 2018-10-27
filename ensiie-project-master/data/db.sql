@@ -1,10 +1,15 @@
 CREATE TABLE public.UserF(
 	Id         SERIAL NOT NULL ,
+<<<<<<< HEAD
 	Name       VARCHAR (50) NOT NULL ,
 <<<<<<< HEAD
 	PasswordD   VARCHAR (50) NOT NULL,
 =======
 	Password   VARCHAR (50) NOT NULL,
+>>>>>>> versioMickey
+=======
+	NameU       VARCHAR (50) NOT NULL ,
+	PasswordP   VARCHAR (50) NOT NULL,
 >>>>>>> versioMickey
 	LastName   VARCHAR (50) NOT NULL ,
 	Username   VARCHAR (50) NOT NULL ,
@@ -24,11 +29,12 @@ CREATE TABLE public.Parent(
 
 CREATE TABLE public.Food(
 	IdFood      SERIAL NOT NULL ,
-	Name        VARCHAR (100) NOT NULL ,
-	Type        VARCHAR (20) NOT NULL ,
+	NameF        VARCHAR (100) NOT NULL ,
+	Typet        VARCHAR (20) NOT NULL ,
 	Price       FLOAT  NOT NULL ,
 	Quantity    INT  NOT NULL ,
 	CodeBarre   INT  NOT NULL  ,
+	ExpirationDate DATE,
 	CONSTRAINT Food_PK PRIMARY KEY (IdFood)
 )WITHOUT OIDS;
 
@@ -108,17 +114,17 @@ CREATE TABLE public.Add(
 
 
 
-INSERT INTO "userf"(id,name,lastname,username,password, mail) VALUES (1,'Dominic', 'Toretto', 'dom','mickeyPass','dom@gmail.com');
+INSERT INTO "userf"(id,nameu,lastname,username,passwordp, mail) VALUES (1,'Dominic', 'Toretto', 'dom','mickeyPass','dom@gmail.com');
 INSERT INTO "parent"(IdParent) VALUES (1);
 INSERT INTO "can_be"(id,idParent) VALUES(1,1);
-INSERT INTO "food"(IdFood, Name,Type,Price,Quantity,CodeBarre) VALUES(1,'Ice tea','Boisson',2,1,124632);
+INSERT INTO "food"(IdFood, Namef,Typet,ExpirationDate,Price,Quantity,CodeBarre) VALUES(1,'Ice tea','Boisson','2018-10-27',2,1,124632);
 INSERT INTO "add"(IdFood,IdParent) VALUES (1,1);
 INSERT INTO "watch"(IdFood,id) VALUES (1,1);
 
-INSERT INTO "userf"(id,name,lastname,username,password, mail) VALUES (2,'Mickey', 'TheBest', 'mickey','mickeyPass','mickey@gmail.com');
+INSERT INTO "userf"(id,nameu,lastname,username,passwordp, mail) VALUES (2,'Mickey', 'TheBest', 'mickey','mickeyPass','mickey@gmail.com');
 INSERT INTO "parent"(IdParent) VALUES (2);
 INSERT INTO "can_be"(id,idParent) VALUES(2,2);
-INSERT INTO "food"(IdFood, Name,Type,Price,Quantity,CodeBarre) VALUES(2,'Coockie','Gateau',6,4,3546542);
+INSERT INTO "food"(IdFood, Namef,Typet,ExpirationDate,Price,Quantity,CodeBarre) VALUES(2,'Coockie','Gateau','2018-10-27',6,4,3546542);
 INSERT INTO "add"(IdFood,IdParent) VALUES (2,2);
 INSERT INTO "watch"(IdFood,id) VALUES (2,2);
 

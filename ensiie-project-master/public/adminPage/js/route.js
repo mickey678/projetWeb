@@ -7,6 +7,7 @@ define(function () {
         }
     })
     var sammyJS = (function () {
+        var content = $("#printDataDiv").html();
         function sammyJS() {
         }
         sammyJS.prototype.executeSammyJS = function () {
@@ -14,32 +15,22 @@ define(function () {
                    var sammy = sammyJS('#content',function () { 
                       
                        this.get("#/",function () {
-                        $.get( "http://192.168.254.136:8080/getDataPHP.php", function(data) {
-
-                          })                       
-                            .done(function(data) {
-                                var dataJ = JSON.parse(data);
-                              
-                                $("#content").html(
-                                    
-                                )
-                            })
-                            .fail(function(data) {
-                              
-                               
-                            })
-                            .always(function(data) {
-                              
-                            });
+                        $("#printDataDiv").html(content); 
                        });
-                       this.get("#/details",function () {
+                       this.get("#/addFood",function () {
+                        $("#printDataDiv").html("depuis add food : ");
+                       });
+                       this.get("#/editFood",function () {
                            var page = this.params.page;
-                           $("#content").html("depuis details : ");
-                           console.log("depuis details ");
+                           $("#printDataDiv").html("depuis edit food : ");
+                           console.log("depuis edit food ");
                        });
-                       this.get("#/details/:id",function () {
-                           $("#content").html("id est : "+ this.params.id);
-                       });
+                       this.get("#/deleteFood",function () {
+                        var page = this.params.page;
+                        $("#printDataDiv").html("depuis delete foods: ");
+                        console.log("delete food ");
+                    });
+           
                     
                     })  
                  

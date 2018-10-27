@@ -24,10 +24,10 @@ class UserRepository
            //var_dump($row->username);
             $user = new User();
                 $user->setId($row->id);
-                $user->setName($row->name);
+                $user->setName($row->nameu);
                 $user->setLastname($row->lastname);
                 $user->setUsername($row->username);
-                $user->setPassword($row->password);
+                $user->setPassword($row->passwordp);
                 $user->setMail($row->mail);
             $users[] = $user;
         }

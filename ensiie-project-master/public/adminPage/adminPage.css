@@ -103,6 +103,20 @@ background-color:#337ab7;
     display: block; 
     width: 50%;
     height: 380px;
-    border:1px solid blue;
+  
     border-radius: 10px;
+}
+#mickeyTab{
+    display: inline-block;
+}
+#printDataDiv{
+    position: absolute;
+    border:1px solid blue;
+    width: 800px;
+    height: 300px;
+    overflow-x: scroll;
+    overflow-y:scroll; 
+    top:35%;
+    left:13%;
+    padding: 15px;
 }

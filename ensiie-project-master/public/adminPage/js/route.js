@@ -14,10 +14,17 @@ define(function () {
             require(["mickeyJS"],function (sammyJS) {
                    var sammy = sammyJS('#printDataDiv',function () { 
                        this.get("#/",function () {
-                        $("#printDataDiv").html(content); 
+                        $.get("")
+
+
                        });
-                       this.get("#/addFood",function () {
+                       this.get("#/addFood",function (contexte) {
+                           
                         $("#printDataDiv").html("depuis add food : ");
+                        $.get("../getAPIopenfoodFact/getApiopenFoodFact.php",function(html){
+                            contexte.$element().html(html);
+                        })
+                        console.log("depui add food");
                        });
                        this.get("#/editFood",function () {
                            var page = this.params.page;

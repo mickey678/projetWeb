@@ -12,8 +12,8 @@
 <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"> 
 <script src="../adminPage/js/route.js"></script>
 <!-- Latest compiled and minified CSS -->
-<script data-main="../adminPage/js/main" src="../adminPage/js/require.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script data-main="../adminPage/js/main" src="../adminPage/js/require.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-light" style="background-color: black;">

@@ -99,8 +99,7 @@
     border:1px solid blue;
     width: 800px;
     height: 300px;
-    overflow-x: scroll;
-    overflow-y:scroll; 
+   
     top:50%;
     left:13%;
     padding: 15px;

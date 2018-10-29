@@ -65,7 +65,8 @@ if($checkIsEmptyNameBool && $chekIsEmtyPasswordBool){
 if($bool==TRUE)
 {
         require '../header/header.php';
-		require '../adminPage/adminPageBody.php';		
+		require '../adminPage/adminPageBody.php';	
+			
 		echo
 		'
 		<script>

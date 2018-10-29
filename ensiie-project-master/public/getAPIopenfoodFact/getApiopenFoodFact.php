@@ -1,3 +1,8 @@
+
+
+
+
+
 <?php
 /**
  * Created by PhpStorm.
@@ -21,8 +26,9 @@ if($action)
     {
             echo' Le produit n esxiste pas dans la base de données !';
     }else {
-            $response = file_get_contents("https://fr.openfoodfacts.org/produit/" .$action, NULL, NULL, 338, 105);
+            $response = file_get_contents("https://fr.openfoodfacts.org/produit/" .$action, NULL, NULL, 312, 105);
             echo '<h1>'.$response.'</h1>';
+           
     }
 }else{
     echo 'Merci de saisir un code barre enfoirée ! ';

@@ -1,8 +1,3 @@
-
-
-
-
-
 <?php
 /**
  * Created by PhpStorm.
@@ -18,7 +13,6 @@ echo '
             <input type="submit" value="Chercher">
         </form>
      ';
-
 $action = (empty($_GET['codeBarre'])) ? FALSE : $_GET['codeBarre'];
 if($action)
 {
@@ -28,9 +22,8 @@ if($action)
     }else {
             $response = file_get_contents("https://fr.openfoodfacts.org/produit/" .$action, NULL, NULL, 312, 105);
             echo '<h1>'.$response.'</h1>';
-           
     }
 }else{
-    echo 'Merci de saisir un code barre enfoirée ! ';
+    echo 'Merci de saisir un code barre ! ';
 }
 ?>

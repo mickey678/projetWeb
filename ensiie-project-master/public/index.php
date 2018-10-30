@@ -5,7 +5,5 @@ require '../vendor/autoload.php';
 //require 'header/header.php';  
 //equire 'getDataPHP.php';
 //require 'adminPage/adminPage.php';
-require 'authPage/auth.php';
+require 'Authentification/authentification.php';
 ?>
-</body>
-</html>

@@ -23,51 +23,21 @@
                                         </div>
                                    </div>
                                 </div>
-                            <div class="row" id="contener1">
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <i class="fa fa-comments fa-5x"></i>
-                                                </div>
-                                                <div class="col-xs-9 text-right">
-                                                    <div class="huge">26</div>
-                                                    <div>Produits dans votre frigo</div>
-                                                </div>
-                                            </div>
+                                <div class="card text-white bg-primary mb-2" style="max-width: 18rem;">
+                                    <div class="card-header">Disponnibles</div>
+                                        <div class="card-body">
+                                            <h5 class="card-title" id="produitsDispo"></h5>
+                                               
                                         </div>
-                                    </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <i class="fa fa-comments fa-5x"></i>
-                                                </div>
-                                                <div class="col-xs-9 text-right">
-                                                    <div class="huge">26</div>
-                                                    <div>Produits dans votre frigo</div>
-                                                </div>
-                                            </div>
+                           &nbsp;  &nbsp;
+                                <div class="card text-white bg-primary mb-2" style="max-width: 18rem;" >
+                                    <div class="card-header">Arrive à expiration : </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Nombre de produit : </h5>
+                                               
                                         </div>
-                                    </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">
-                                            <div class="row">
-                                                <div class="col-xs-3">
-                                                    <i class="fa fa-comments fa-5x"></i>
-                                                </div>
-                                                <div class="col-xs-9 text-right">
-                                                    <div class="huge">26</div>
-                                                    <div>Produits dans votre frigo</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                              
                 </div>
-   
+                <div id="datas"></div>

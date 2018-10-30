@@ -93,15 +93,9 @@
 #mickeyTab{
     display: inline-block;
 }
-#printDataDiv{
+#datas{
+    position:absolute;
+    left:200px;
     margin:10px;
-    position: absolute;
-    border:1px solid blue;
-    width: 800px;
-    height: 300px;
-   
-    top:50%;
-    left:13%;
-    padding: 15px;
-    border-radius: 5px 5px 5px 5px ;
+  
 }

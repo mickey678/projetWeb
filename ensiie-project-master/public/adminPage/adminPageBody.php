@@ -2,6 +2,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                              <h1 class="page-header" id="bonjour"> </h1>
+                             <h2 class="page-header" id="iduser"> </h2>
                         </div>
                 <!-- /.col-lg-8 -->
                     </div>

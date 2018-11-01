@@ -9,12 +9,14 @@ var lookIn = (function(){
                 function (data) {
                     $("#datas").html(data);
                     var nameOfUser = $("#bonjour").text();
+                   
                     nameOfUser=nameOfUser.substring(8,nameOfUser.length); 
                     $.post(
                         "../lookInFridge/lookInFridge.php",
                         {
                             "nameOfUser":nameOfUser,
                         },function(dataS){
+                            console.log(dataS);
                             var returnJSON = JSON.parse(dataS);
                             $("#produitsDispo").html("Nombre de produit : " + returnJSON.length);
                             for(var i=0;i<returnJSON.length;i++){

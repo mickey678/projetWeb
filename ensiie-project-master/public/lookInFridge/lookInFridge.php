@@ -9,9 +9,10 @@ $users = $userRepository->fetchAll();
 if(isset($_POST["nameOfUser"]))
 {
     $rows1 = $connection->query("SELECT * FROM food inner join watch on food.idfood=watch.idfood
-    inner join userf on watch.id=userf.id inner join can_be on userf.nameu='".$_POST["nameOfUser"]."'")->fetchAll(\PDO::FETCH_OBJ); 
+    inner join userf on watch.id=userf.id and userf.nameu='".$_POST["nameOfUser"]."'")->fetchAll(\PDO::FETCH_OBJ); 
     echo json_encode($rows1);
 }else{
     echo "User doesn't exists !";
 }
 ?>
+

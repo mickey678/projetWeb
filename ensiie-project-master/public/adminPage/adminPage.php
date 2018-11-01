@@ -5,6 +5,7 @@ $chekIsEmtyPassword=(empty($_POST["password"])) ? FALSE: ($_POST["password"]);
 
 $bool = FALSE;
 $nameOfUser = "";
+$idOfUser=0;
 if(isset($_POST['mail']) && isset($_POST['password']))
 {
 	$_SESSION["mail"]=$_POST["mail"];
@@ -25,7 +26,10 @@ if(isset($_POST['mail']) && isset($_POST['password']))
 			if($PaswordIndatabase == $chekIsEmtyPassword && $userInDataBase == $checkIsEmptyName){
 				$bool=TRUE;
 				$nameOfUser=$user->getName();
+				$idOfUser =$user->getId();
 				$_SESSION["nom"]=$nameOfUser;
+				$_SESSION["id"] = $idOfUser;
+
 				}
 		}
         require '../header/header.php';
@@ -34,6 +38,7 @@ if(isset($_POST['mail']) && isset($_POST['password']))
 		'
 		<script>
 		document.getElementById("bonjour").innerText= "Bonjour '.$_SESSION['nom'].'";
+		document.getElementById("iduser").innerText= "User id :'.$_SESSION['id'].'";
 	  	</script>
 	  ';
 	

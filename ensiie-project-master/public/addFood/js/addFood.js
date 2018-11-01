@@ -1,4 +1,26 @@
 var addFood = (function(){
+    String.prototype.sansAccent = function(){
+        var accent = [
+            /[\300-\306]/g, /[\340-\346]/g, // A, a
+            /[\310-\313]/g, /[\350-\353]/g, // E, e
+            /[\314-\317]/g, /[\354-\357]/g, // I, i
+            /[\322-\330]/g, /[\362-\370]/g, // O, o
+            /[\331-\334]/g, /[\371-\374]/g, // U, u
+            /[\321]/g, /[\361]/g, // N, n
+            /[\307]/g, /[\347]/g, // C, c
+        ];
+        var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];
+         
+        var str = this;
+        for(var i = 0; i < accent.length; i++){
+            str = str.replace(accent[i], noaccent[i]);
+        }
+         
+        return str;
+    }
+
+
+
     function addAFood(){
         $("#contener123").fadeOut(0);
         $("#contener223").fadeOut(0);
@@ -18,6 +40,38 @@ var addFood = (function(){
                         toastr.success('Product found !');
                         var nameOfproduct = $("#temp").html(response).fadeOut(0);
                         $("#name1").val(nameOfproduct.html());
+                        $("#save1").click(function(){
+                            var name1 = $("#name1").val().sansAccent();
+                            var type1 = $("#type1").val();
+                            var price1 = $("#price1").val();
+                            var date1 = $("#date1").val();
+                            var idParent = $("#iduser").text();
+                            var quantity1 = $("#quantity1").val();
+                            idParent = idParent.substring(9,idParent.length);
+                            name1 = name1.sansAccent();
+                            name1=name1.replace("'"," ");
+                            name1 = name1.replace(",",".");
+                            console.log(name1);
+                            console.log(type1);
+                            console.log(price1);
+                            console.log(date1);
+                            console.log(idParent);
+                            console.log(quantity1);
+
+                            $.post("../addFood/php/addFood.php",{
+                                name1:name1,
+                                type1:type1,
+                                price1:price1,
+                                date1:date1,
+                                codeBarre1:codeBarre,
+                                idParent:idParent,
+                                quantity1:quantity1
+                            },
+                            function(response){
+                                $("#datas").html(response);
+                            }
+                            )
+                        })
                     }
                    
                 })

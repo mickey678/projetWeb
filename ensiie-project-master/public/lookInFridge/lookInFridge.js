@@ -1,6 +1,8 @@
 var lookIn = (function(){
     function getPromise()
     {
+        $("#contener123").fadeIn(2000);
+        $("#contener223").fadeIn(2000);
        return new Promise(function (resolve,reject){
             $.get(
                 "../lookInFridge/lookInFridheBody.html",
@@ -26,7 +28,6 @@ var lookIn = (function(){
                                 $("#tbody").append("<td>"+returnJSON[i].codebarre+"</td>");
                                 $("tbody").append("</tr>");
                             }
-                          
                         }
                     )
                 }
@@ -38,6 +39,5 @@ var lookIn = (function(){
     }
     return {
         look:look,
-        
     }
 })();

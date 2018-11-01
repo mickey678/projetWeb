@@ -23,7 +23,7 @@
                                         </div>
                                    </div>
                                 </div>
-                                <div class="card text-white bg-primary mb-2" style="max-width: 18rem;">
+                                <div class="card text-white bg-primary mb-2" style="max-width: 18rem;" id="contener123">
                                     <div class="card-header">Disponnibles</div>
                                         <div class="card-body">
                                             <h5 class="card-title" id="produitsDispo"></h5>
@@ -31,7 +31,7 @@
                                         </div>
                                 </div>
                            &nbsp;  &nbsp;
-                                <div class="card text-white bg-primary mb-2" style="max-width: 18rem;" >
+                                <div class="card text-white bg-primary mb-2" style="max-width: 18rem;" id="contener223">
                                     <div class="card-header">Arrive à expiration : </div>
                                         <div class="card-body">
                                             <h5 class="card-title">Nombre de produit : </h5>
@@ -41,3 +41,5 @@
                               
                 </div>
                 <div id="datas"></div>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js" ></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>

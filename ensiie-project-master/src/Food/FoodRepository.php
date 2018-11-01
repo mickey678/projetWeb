@@ -25,6 +25,7 @@ class FoodRepository
                 $food->setId($row->id);
                 $food->setName($row->name);
                 $food->setType($row->type);
+                $food->setType($row->expirationdate);
                 $food->setPrice($row->price);
                 $food->setQuantity($row->quantity);
                 $food->setCodeBarre($row->codebarre);

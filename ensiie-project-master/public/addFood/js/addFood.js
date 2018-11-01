@@ -19,9 +19,7 @@ var addFood = (function(){
         return str;
     }
 
-
-
-    function addAFood(){
+    function addAFood(context){
         $("#contener123").fadeOut(0);
         $("#contener223").fadeOut(0);
         var nameOfUser = $("#bienvenue").html();
@@ -32,8 +30,6 @@ var addFood = (function(){
                 $.post("../addFood/getAPIopenfoodFact/getApiopenFoodFact.php",{
                     codeBarre:codeBarre
                 },function(response){
-                    console.log(codeBarre)
-                    console.log(response);
                     var response1 = response.trim();
                     if(response1===""){
                         $("#name1").val("Product was not found !");
@@ -53,13 +49,6 @@ var addFood = (function(){
                             name1 = name1.sansAccent();
                             name1=name1.replace("'"," ");
                             name1 = name1.replace(",",".");
-                            console.log(name1);
-                            console.log(type1);
-                            console.log(price1);
-                            console.log(date1);
-                            console.log(idParent);
-                            console.log(quantity1);
-
                             $.post("../addFood/php/addFood.php",{
                                 name1:name1,
                                 type1:type1,
@@ -70,10 +59,16 @@ var addFood = (function(){
                                 quantity1:quantity1
                             },
                             function(response){
-                                $("#datas").html(response);
+                                if(response==="Success"){
+                                    toastr.success('Product added !');
+                                    context.redirect("#/");
+                                }else{
+                                    toastr.error('There had a problem! Try it again, Please');
+                                }
                             }
                             )
                         })
+            
                     }
                    
                 })

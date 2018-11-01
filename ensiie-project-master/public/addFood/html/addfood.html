@@ -1,6 +1,6 @@
 <nav class="nav nav-tabs">
     <a class="nav-item nav-link active" href="#p1" data-toggle="tab">Add a product by code barre</a>
-    <a class="nav-item nav-link" href="#p2" data-toggle="tab">Add a product normally</a>
+    <a class="nav-item nav-link"  href="#p2" data-toggle="tab">Add a product normally</a>
   </nav>
   <div class="tab-content">
     <div class="tab-pane active" id="p1">
@@ -22,8 +22,9 @@
         <input type="text" class="form-control form-control-success" id="name1">
         <br />
         <button type="button" id="save1" class="btn btn-success">Save</button>
-      </form>      
-    </div>
+ 
+       </form>
+ </div>
       <div class="tab-pane" id="p2">
         <form>
          <label class="form-control-label" for="inputSuccess1">Name</label>
@@ -31,24 +32,62 @@
          <label class="form-control-label" for="inputSuccess1">Type</label>
          <input type="text" class="form-control form-control-success" id="type2">
          <label class="form-control-label" for="inputSuccess1">Price</label>
-         <input type="text" class="form-control form-control-success" id="price2">
+         <input type="text" class="form-control form-control-success" id="price23">
          <label class="form-control-label" for="inputSuccess1">Expiration date</label>
          <input type="text" class="form-control form-control-success" id="date2">
          <label class="form-control-label" for="inputSuccess1">Quantity</label>
          <input type="text" class="form-control form-control-success" id="quantity2">
          <label class="form-control-label" for="inputSuccess1">Code Barre</label>
-         <input type="text" class="form-control form-control-success" id="codebarre22">
+         <input type="text" class="form-control form-control-success" id="codebarre23">
          <br />
          <button type="button" id="save2" class="btn btn-success">Save</button>
         </form>
-</div>
+
   </div>
+</div>
 
 
  <div id="temp"></div>
        
-             
-
+             <script>
+               function addFood2(contexte){
+    $("#save2").click(function(){
+                            var name2 = $("#name2").val();
+                            var type2 = $("#type2").val();
+                            var price23 = $('#price23').val();
+                            var date2 = $("#date2").val();
+                            var idParent = $("#iduser").text();
+                            var quantity2 = $("#quantity2").val();
+                            var codebarre23=$("#codebarre23").val();
+                            idParent = idParent.substring(9,idParent.length);
+                            $.post("../addFood/php/addFood2.php",{
+                                name2:name2,
+                                type2:type2,
+                                price2:price23,
+                                date2:date2,
+                                codeBarre22:codebarre23,
+                                idParent:idParent,
+                                quantity2:quantity2
+                            },
+                            function(response){
+                                if(response==="Success"){
+                                    toastr.success('Product added !');
+                                    $("#codebarre23").val("");
+                                    $("#quantity2").val("");
+                                   $("#date2").val("");
+                                    $("#type2").val("");
+                                     $("#name2").val("");
+                                     $('#price23').val("");
+                                }else{
+                                  console.log(response);
+                                    toastr.error('There had a problem! Try it again, Please');
+                                }
+                            }
+                            )
+                        })
+                      }
+                      addFood2();
+             </script>
 
 
        

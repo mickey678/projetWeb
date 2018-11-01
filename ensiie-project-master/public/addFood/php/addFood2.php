@@ -1,20 +1,20 @@
 <?php
 if(
-    isset($_POST["codeBarre"]) && 
-    isset($_POST["name1"])&&
-    isset($_POST["type1"]) &&
-    isset($_POST["price1"]) &&
-    isset($_POST["quantity1"]) && 
-    isset($_POST["date1"])&& 
+    isset($_POST["codeBarre22"]) && 
+    isset($_POST["name2"])&&
+    isset($_POST["type2"]) &&
+    isset($_POST["price2"]) &&
+    isset($_POST["quantity2"]) && 
+    isset($_POST["date2"])&& 
     isset($_POST["idParent"])
   )
 {
-    $name = $_POST["name1"];
-    $type = $_POST['type1'];
-    $date = $_POST['date1'];
-    $price = $_POST['price1'];
-    $quantity = $_POST['quantity1'];
-    $codeBarre = $_POST['codeBarre'];
+    $name = $_POST["name2"];
+    $type = $_POST['type2'];
+    $date = $_POST['date2'];
+    $price = $_POST['price2'];
+    $quantity = $_POST['quantity2'];
+    $codeBarre = $_POST['codeBarre22'];
     $idParent = $_POST["idParent"];
     require '../../../vendor/autoload.php';
 	$dbName = getenv('DB_NAME');

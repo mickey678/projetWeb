@@ -32,6 +32,8 @@ var addFood = (function(){
                 $.post("../addFood/getAPIopenfoodFact/getApiopenFoodFact.php",{
                     codeBarre:codeBarre
                 },function(response){
+                    console.log(codeBarre)
+                    console.log(response);
                     var response1 = response.trim();
                     if(response1===""){
                         $("#name1").val("Product was not found !");
@@ -63,7 +65,7 @@ var addFood = (function(){
                                 type1:type1,
                                 price1:price1,
                                 date1:date1,
-                                codeBarre1:codeBarre,
+                                codeBarre:codeBarre,
                                 idParent:idParent,
                                 quantity1:quantity1
                             },

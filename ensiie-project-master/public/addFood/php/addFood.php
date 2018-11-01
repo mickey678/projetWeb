@@ -1,6 +1,6 @@
 <?php
 if(
-    isset($_POST["codeBarre1"]) && 
+    isset($_POST["codeBarre"]) && 
     isset($_POST["name1"])&&
     isset($_POST["type1"]) &&
     isset($_POST["price1"]) &&
@@ -14,7 +14,7 @@ if(
     $date = $_POST['date1'];
     $price = $_POST['price1'];
     $quantity = $_POST['quantity1'];
-    $codeBarre = $_POST['codeBarre1'];
+    $codeBarre = $_POST['codeBarre'];
     $idParent = $_POST["idParent"];
     require '../../../vendor/autoload.php';
 	$dbName = getenv('DB_NAME');

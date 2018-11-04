@@ -34,6 +34,7 @@ if(isset($_POST['mail']) && isset($_POST['password']))
 		}
         require '../header/header.php';
 		require '../adminPage/adminPageBody.php';	
+	
 		echo
 		'
 		<script>

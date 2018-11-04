@@ -35,6 +35,7 @@ var addFood = (function(){
                         $("#name1").val("Product was not found !");
                         toastr.error('Product not found ! Try again');
                     }else{
+                
                         toastr.success('Product found !');
                         var nameOfproduct = $("#temp").html(response).fadeOut(0);
                         $("#name1").val(nameOfproduct.html());

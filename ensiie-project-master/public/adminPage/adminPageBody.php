@@ -24,6 +24,7 @@
                                         </div>
                                    </div>
                                 </div>
+            
                                 <div class="card text-white bg-primary mb-2" style="max-width: 18rem;" id="contener123">
                                     <div class="card-header">Disponnibles</div>
                                         <div class="card-body">

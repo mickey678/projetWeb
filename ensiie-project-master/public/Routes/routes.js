@@ -7,11 +7,7 @@
             $("#printDataDiv").html("depuis edit food : ");
                 console.log("depuis edit food ");
                    });
-        this.get("#/deleteFood",function () {
-            var page = this.params.page;
-                        $("#printDataDiv").html("depuis delete foods: ");
-                        console.log("delete food ");
-                    });   
+        this.get("#/deleteFood",deleteFood.deleteF);   
                 });  
                    $(function () {
                        sammy.run("#/");

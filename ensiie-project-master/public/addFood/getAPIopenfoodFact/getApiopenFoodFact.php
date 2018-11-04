@@ -8,8 +8,10 @@ if(isset($_POST["codeBarre"]))
     {  
         echo '';
    }else {
-            $response = file_get_contents("https://fr.openfoodfacts.org/produit/" .$_POST["codeBarre"], NULL, NULL, 312, 105);
-            echo $response;
+            $response = file_get_contents("https://fr.openfoodfacts.org/produit/" .$_POST["codeBarre"], NULL, NULL, 85, 1005);
+            $pos = strpos($response,"<title>");
+            $res = substr($response,0,100);
+            echo $res;
     }
 }
 ?>

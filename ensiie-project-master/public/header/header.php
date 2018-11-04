@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Frijole" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+<script src="../js/controllers/deleteFood.js"></script>
 <script src="../lookInFridge/lookInFridge.js"></script>
 <script src="../addFood/js/addFood.js"></script>
 <script src="../libs/sammy/sammy-latest.min.js"></script>

@@ -46,7 +46,6 @@ class Food
         }
         return $foods;
     }
-
     public function createFood(\Food\Entity\Food $food,$idParent){
         try{
             $taskArray = $this->hydrator->extract($food);

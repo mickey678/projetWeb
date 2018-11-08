@@ -18,7 +18,6 @@ var addFood = (function(){
          
         return str;
     }
-
     function addAFood(context){
         $("#contener123").fadeOut(0);
         $("#contener223").fadeOut(0);

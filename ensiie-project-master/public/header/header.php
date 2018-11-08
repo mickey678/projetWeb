@@ -15,6 +15,9 @@
 <link rel="stylesheet" type="text/css" href="../adminPage/adminPage.css"/>
 <link rel="stylesheet" type="text/css" href="../header/header.css"/>
 <script src="../js/Routes/routes.js"></script>
+<link rel="stylesheet" type="text/css" href="../libs/calendar/datetimepicker-master/jquery.datetimepicker.css" >
+<script src="../libs/calendar/datetimepicker-master/jquery.js"></script>
+<script src="../libs/calendar/datetimepicker-master/build/jquery.datetimepicker.full.min.js"></script>
 <!-- Latest compiled and minified CSS -->
 </head>
 <body>

@@ -1,18 +1,26 @@
 <?php
-namespace Food;
+namespace Food\Entity;
 
 class Food
 {
+    /*Integer*/
     private $Id;
+    /*String*/
     private $Name;
+    /*String*/
     private $Type;
+    /*Double*/
     private $Price;
+    /*Integer*/
     private $Quantity;
-    private $codeBarre;
+    /*Big Integer*/
+    private $codebarre;
+    /* date*/
+    private $date;
 
     public function setId($id)
     {
-        $this->id = $id;
+        $this->Id = $id;
         return $this;
     }
 
@@ -21,7 +29,7 @@ class Food
      */
     public function getId()
     {
-        return $this->id;
+        return $this->Id;
     }
 
     public function setName($name)
@@ -94,6 +102,13 @@ class Food
         return $this->codebarre;
     }
 
+    public function setDate($date){
+        $this->date=$date;
+        return $this;
+    }
+    public function getDate(){
+        return $this->date;
+    }
 }
 
 ?>

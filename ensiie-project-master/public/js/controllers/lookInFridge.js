@@ -9,17 +9,19 @@ var lookIn = (function(){
                 function (data) {
                     $("#datas").html(data);
                     var nameOfUser = $("#bonjour").text();
-                   
                     nameOfUser=nameOfUser.substring(8,nameOfUser.length); 
                     $.post(
                         "../lookInFridge/lookInFridge.php",
                         {
                             "nameOfUser":nameOfUser,
                         },function(dataS){
+                        
                             var returnJSON = JSON.parse(dataS);
+                            $("#tbody").html(" ");
                             $("#produitsDispo").html("Nombre de produit : " + returnJSON.length);
+                            console.log(returnJSON);
                             for(var i=0;i<returnJSON.length;i++){
-                                $("tbody").append("<tr>");
+                                $("#tbody").append("<tr>");
                                 $("#tbody").append("<th scope='row'>"+returnJSON[i].idfood+"</th>");
                                 $("#tbody").append("<td>"+returnJSON[i].namef+"</td>");
                                 $("#tbody").append("<td>"+returnJSON[i].typet+"</td>");
@@ -27,7 +29,7 @@ var lookIn = (function(){
                                 $("#tbody").append("<td>"+returnJSON[i].expirationdate+"</td>");
                                 $("#tbody").append("<td>"+returnJSON[i].quantity+"</td>");
                                 $("#tbody").append("<td>"+returnJSON[i].codebarre+"</td>");
-                                $("tbody").append("</tr>");
+                                $("#tbody").append("</tr>");
                             }
                         }
                     )

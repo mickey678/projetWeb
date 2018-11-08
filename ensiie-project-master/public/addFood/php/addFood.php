@@ -1,57 +1,39 @@
 <?php
-if(
-    isset($_POST["codeBarre"]) && 
-    isset($_POST["name1"])&&
-    isset($_POST["type1"]) &&
-    isset($_POST["price1"]) &&
-    isset($_POST["quantity1"]) && 
-    isset($_POST["date1"])&& 
-    isset($_POST["idParent"])
-  )
+  include_once '../../../src/Food/Hydrator/FoodHydrator.php';
+  include_once '../../../src/Food/Repository/FoodRepository.php';
+  include_once '../../../src/Food/Entity/FoodEntity.php';
+if($_SERVER['REQUEST_METHOD']==='POST')
 {
-    $name = $_POST["name1"];
-    $type = $_POST['type1'];
-    $date = $_POST['date1'];
-    $price = $_POST['price1'];
-    $quantity = $_POST['quantity1'];
-    $codeBarre = $_POST['codeBarre'];
+    session_start();
+    $foodHydratorUser = new \Food\Hydrator\Food();
+    $foodRepositoryUser = new \Food\Repository\Food();
+    $view = ['food'=>[]];
+    $name = $_POST["name1"] ?? $_POST["name2"];
+    $type = $_POST['type1'] ?? $_POST["type2"];
+    $date = $_POST['date1']?? $_POST["date2"];
+    $price = $_POST['price1']?? $_POST["price2"];
+    $quantity = $_POST['quantity1']?? $_POST["quantity2"];
+    $codeBarre = $_POST['codeBarre']?? $_POST["codeBarre22"];
     $idParent = $_POST["idParent"];
-    require '../../../vendor/autoload.php';
-	$dbName = getenv('DB_NAME');
-	$dbUser = getenv('DB_USER');
-	$dbPassword = getenv('DB_PASSWORD');
-    $connection = new PDO("pgsql:host=postgres user=$dbUser dbname=$dbName password=$dbPassword");
-    $sqlFood="
-    INSERT INTO food
-    (
-        Namef,
-        Typet,
-        ExpirationDate,
-        Price,
-        Quantity,
-        CodeBarre
-    ) 
-        VALUES
-        (
-            '$name',
-            '$type',
-            '$date',
-            '$price',
-            '$quantity',
-            '$codeBarre'
-        ) returning idFood;";
-try{
-$connection->query($sqlFood);
-$a = $connection->lastInsertId();
-$sqlWatch ="INSERT INTO watch(idfood,id) VALUES ('$a','$idParent');";
-$connection->query($sqlWatch);
-echo "Success";
-}catch(Exception $e){
-    echo $e->getMessage();
+    $view['food']=[
+        'name'=>$name ?? null,
+        'type'=>$type ?? null,
+        'date'=>$date ?? null,
+        'price'=>$price ?? null,
+        'quantity'=>$quantity ?? null,
+        'codeBarre'=>$codeBarre ?? null,
+        'idParent'=>$idParent ?? null 
+    ];
+    $newFood = $foodHydratorUser->hydrate(
+        [
+            'name'=>$name,
+            'type'=>$type,
+            'date'=>$date,
+            'price'=>$price,
+            'quantity'=>$quantity,
+            'codebarre'=>$codeBarre,
+            'idParent'=>$idParent
+        ],new \Food\Entity\Food());
+        $foodRepositoryUser->createFood($newFood,$idParent);
 }
-}
-else{
-    echo "du tout";
-}
-
 ?>

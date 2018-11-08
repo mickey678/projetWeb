@@ -64,6 +64,8 @@ var addFood = (function(){
                                     toastr.success('Product added !');
                                     context.redirect("#/");
                                 }else{
+                                $("#temp").html(response).fadeIn(0);
+                                   console.log(response);
                                     toastr.error('There had a problem! Try it again, Please');
                                 }
                             }

@@ -48,45 +48,44 @@
 
 
  <div id="temp"></div>
-       
-             <script>
-               function addFood2(contexte){
+<script>
+  function addFood2(contexte){
     $("#save2").click(function(){
-                            var name2 = $("#name2").val();
-                            var type2 = $("#type2").val();
-                            var price23 = $('#price23').val();
-                            var date2 = $("#date2").val();
-                            var idParent = $("#iduser").text();
-                            var quantity2 = $("#quantity2").val();
-                            var codebarre23=$("#codebarre23").val();
-                            idParent = idParent.substring(9,idParent.length);
-                            $.post("../addFood/php/addFood2.php",{
-                                name2:name2,
-                                type2:type2,
-                                price2:price23,
-                                date2:date2,
-                                codeBarre22:codebarre23,
-                                idParent:idParent,
-                                quantity2:quantity2
-                            },
-                            function(response){
-                                if(response==="Success"){
-                                    toastr.success('Product added !');
-                                    $("#codebarre23").val("");
-                                    $("#quantity2").val("");
-                                   $("#date2").val("");
-                                    $("#type2").val("");
-                                     $("#name2").val("");
-                                     $('#price23').val("");
-                                }else{
-                                  console.log(response);
-                                    toastr.error('There had a problem! Try it again, Please');
-                                }
-                            }
-                            )
-                        })
-                      }
-                      addFood2();
+          var name2 = $("#name2").val();
+          var type2 = $("#type2").val();
+          var price23 = $('#price23').val();
+          var date2 = $("#date2").val();
+          var idParent = $("#iduser").text();
+          var quantity2 = $("#quantity2").val();
+          var codebarre23=$("#codebarre23").val();
+          idParent = idParent.substring(9,idParent.length);
+          $.post("../addFood/php/addFood.php",{
+              name2:name2,
+              type2:type2,
+              price2:price23,
+              date2:date2,
+              codeBarre22:codebarre23,
+              idParent:idParent,
+              quantity2:quantity2
+          },
+          function(response){
+              if(response==="Success"){
+                  toastr.success('Product added !');
+                  $("#codebarre23").val("");
+                  $("#quantity2").val("");
+                  $("#date2").val("");
+                  $("#type2").val("");
+                  $("#name2").val("");
+                  $('#price23').val("");
+              }else{
+                console.log(response);
+                  toastr.error('There had a problem! Try it again, Please');
+              }
+          }
+          )
+      })
+    }
+    addFood2();
              </script>
 
 

@@ -3,7 +3,7 @@
   include_once '../../../src/Food/Repository/FoodRepository.php';
   include_once '../../../src/Food/Entity/FoodEntity.php';
 if($_SERVER['REQUEST_METHOD']==='POST')
-{
+{ 
     session_start();
     $foodHydratorUser = new \Food\Hydrator\Food();
     $foodRepositoryUser = new \Food\Repository\Food();

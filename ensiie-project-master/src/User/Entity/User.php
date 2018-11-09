@@ -1,5 +1,5 @@
 <?php
-namespace User;
+namespace Entity\User;
 
 class User
 {
@@ -68,7 +68,7 @@ class User
     /**
      * @return string
      */
-    public function getLastname()
+    public function getLastName()
     {
         return $this->lastname;
     }
@@ -77,7 +77,7 @@ class User
      * @param string $lastname
      * @return User
      */
-    public function setLastname($lastname)
+    public function setLastName($lastname)
     {
         $this->lastname = $lastname;
         return $this;
@@ -95,7 +95,7 @@ class User
      * @param \DateTimeInterface $birthday
      * @return User
      */
-    public function setUsername( $username)
+    public function setUsername($username)
     {
         $this->username = $username;
         return $this;

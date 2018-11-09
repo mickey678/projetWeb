@@ -5,7 +5,6 @@ include_once '../../../src/Adapter/DatabaseFactory.php';
 include_once '../../../src/Food/Entity/FoodEntity.php';
 class Food
 {
-
     /**
      * @var \PDO
      */
@@ -16,8 +15,6 @@ class Food
      * @param \PDO $connection
      */
 
-  
-
     public function __construct()
     {
         $this->hydrator = new \Food\Hydrator\Food();
@@ -25,10 +22,6 @@ class Food
         $this->dbAdapterFunction= $this->dbAdapter->getDbAdapter();
 
     }
-
-
-
-
     public function fetchAll()
     {
         $rows = $this->connection->query('SELECT * FROM "food" ')->fetchAll(\PDO::FETCH_OBJ);
@@ -67,9 +60,20 @@ class Food
             $statement->bindParam(':idParent',$idParent);
             $statement->execute();
             echo 'Success';
+        }catch(PDOException $ex){
+            echo $ex->getMessage();
+        }
+    }
+
+    public function printFood(){
+        try{
+        $statement=$this->dbAdapter->prepare('select * from "food"  as f where f.idfood not in (select idfood from "consumed" as a)');
+        $statement->execute();
+        $rows = $statement->fetchAll(\PDO::FETCH_OBJ); 
+        return json_encode($rows);
     }catch(PDOException $ex){
         echo $ex->getMessage();
     }
-    }
+}
 }
 ?>

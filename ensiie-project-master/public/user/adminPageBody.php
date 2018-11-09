@@ -26,7 +26,7 @@
                                 </div>
             
                                 <div class="card text-white bg-primary mb-2" style="max-width: 18rem;" id="contener123">
-                                    <div class="card-header">Disponnibles</div>
+                                    <div class="card-header">Available</div>
                                         <div class="card-body">
                                             <h5 class="card-title" id="produitsDispo"></h5>
                                                
@@ -34,13 +34,12 @@
                                 </div>
                            &nbsp;  &nbsp;
                                 <div class="card text-white bg-primary mb-2" style="max-width: 18rem;" id="contener223">
-                                    <div class="card-header">Arrive à expiration : </div>
+                                    <div class="card-header">Consumed: </div>
                                         <div class="card-body">
-                                            <h5 class="card-title">Nombre de produit : </h5>
+                                            <h5 id="consumed" class="card-title"> </h5>
                                                
                                         </div>
                                 </div>
-                              
                 </div>
                 <div id="datas"></div>
     <script src="http://code.jquery.com/jquery-2.0.3.min.js" ></script>

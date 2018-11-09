@@ -15,11 +15,13 @@ var lookIn = (function(){
                         {
                             "nameOfUser":nameOfUser,
                         },function(dataS){
-                        
-                            var returnJSON = JSON.parse(dataS);
+                            var consumed = dataS.substring(0,13);
+                            consumed = JSON.parse(consumed);
+                            consumed=consumed[0];
+                            $("#consumed").html("Number of product : " +consumed.count);
+                            var returnJSON = JSON.parse(dataS.substring(13,dataS.length));      
                             $("#tbody").html(" ");
-                            $("#produitsDispo").html("Nombre de produit : " + returnJSON.length);
-                            console.log(returnJSON);
+                            $("#produitsDispo").html("Number of product : " + returnJSON.length);
                             for(var i=0;i<returnJSON.length;i++){
                                 $("#tbody").append("<tr>");
                                 $("#tbody").append("<th scope='row'>"+returnJSON[i].idfood+"</th>");

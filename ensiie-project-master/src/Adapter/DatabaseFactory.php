@@ -1,10 +1,8 @@
 <?php
 namespace Adapter;
 class DatabaseFactory{
-
     function getDbAdapter():\PDO
         {
-            require '../../../vendor/autoload.php';
             $dbName = getenv('DB_NAME');
             $dbUser = getenv('DB_USER');
             $dbPassword = getenv('DB_PASSWORD');

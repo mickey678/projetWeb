@@ -1,6 +1,6 @@
 body{
     position: relative;
-    background: url("images/fridge.jpg");
+    background: url("../images/fridge.jpg");
     background-repeat:no-repeat; 
     background-size:450px; 
     background-position-x:320px;

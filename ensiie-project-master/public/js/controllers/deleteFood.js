@@ -13,8 +13,11 @@ var deleteFood = (function(){
                             "nameOfUser":nameOfUser,
                         },function(dataS){
                           
-                            var products = JSON.parse(dataS);
-                            $("#produitsDispo").html("Nombre de produit : " + products.length);
+                            var consumed = dataS.substring(0,13);
+                            consumed = JSON.parse(consumed);
+                            consumed=consumed[0];
+                            $("#consumed").html("Number of product : " +consumed.count);
+                            var products = JSON.parse(dataS.substring(13,dataS.length));  
                             for(var k=0;k<products.length;k++){
                                 $("#datas").append($("#productDelete").append("<option value="+products[k].idfood+">"+products[k].namef+", exp. date : "+products[k].expirationdate+", quantity : "+products[k].quantity+", code barre : "+ products[k].codebarre+"</option>"));
                                }

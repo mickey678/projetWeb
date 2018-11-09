@@ -36,7 +36,7 @@ class Food{
 
 
     public function hydrate(array $data, \Food\Entity\Food $emptyEntity):\Food\Entity\Food{
-        $emptyEntity->setId($data["id"]?? null);
+       
         $emptyEntity->setName($data["name"]?? null);
         $emptyEntity->setType($data["type"] ?? null);
         $emptyEntity->setPrice($data["price"] ?? null);

@@ -15,14 +15,11 @@ var addFood = (function(){
         for(var i = 0; i < accent.length; i++){
             str = str.replace(accent[i], noaccent[i]);
         }
-         
         return str;
     }
     function addAFood(context){
-        $("#contener123").fadeOut(0);
-        $("#contener223").fadeOut(0);
         var nameOfUser = $("#bienvenue").html();
-        $.get("../addFood/html/addfood.html",function(html){
+        $.get("../views/addFood/addfood.html",function(html){
             $("#datas").html(html);
             $("#findProduct").click(function(){
                 var codeBarre = $("#codeBarre11").val();
@@ -61,7 +58,7 @@ var addFood = (function(){
                             function(response){
                                 if(response==="Success"){
                                     toastr.success('Product added !');
-                                    context.redirect("#/");
+                                    context.redirect("#/look");
                                 }else{
                                 $("#temp").html(response).fadeIn(0);
                                    console.log(response);

@@ -75,5 +75,18 @@ class Food
         echo $ex->getMessage();
     }
 }
+
+
+    public function seeAllWasteProducts(){
+        try{
+            $statement=$this->dbAdapter->prepare('select * from "waste")');
+            $statement->execute();
+            $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
+            return json_encode($rows);
+       
+        }catch(PDOException $ex){
+            echo $ex->getMessage();
+        }
+    }
 }
 ?>

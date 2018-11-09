@@ -1,29 +1,38 @@
-<?php
-//require '../vendor/autoload.php';
-//require 'addFood/getAPIopenfoodFact/getApiopenFoodFact.php';
-//require 'sendMail/sendMail.php';
-//require 'header/header.php';  
-//equire 'getDataPHP.php';
-//require 'adminPage/adminPage.php';
-//require 'Authentification/authentification.php';
-?>
 <!DOCTYPE html>
 <html>
 <head><script src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="  crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="views/authentification/css/authentification.css">
-
+<script src="../libs/sammy/sammy-latest.min.js"></script>
+<script src="../js/controllers/authentification.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Frijole" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+<script src="../js/controllers/deleteFood.js"></script>
+<script src="../js/controllers/lookInFridge.js"></script>
+<script src="../js/controllers/addFood.js"></script>
+<script src="../js/controllers/seeMySpent.js"></script>
+<script src="../libs/sammy/sammy-latest.min.js"></script>
+<script src="../js/Routes/routes.js"></script>
+<link rel="stylesheet" type="text/css" href="../user/css/adminPage.css"/>
 <title>Smart Fridge</title>
 </head>
-<body>
+<body> 
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="../views/accueil/navbar.jpg" width="90" height="40" class="d-inline-block align-top" alt="">
+  </a>
+</nav>
+<h1 class="page-header" id="bonjour"> </h1>
+<h2 class="page-header" id="iduser"> </h2>
+<div id="body">
 <form>
   <div class="form-row">
-    <div class="col-md-2 mb-1" id="firstName">
+    <div class="col-md-4 mb-2" id="mail1">
       <label for="validationServer01">Mail</label>
       <input type="text" id="mail" class="form-control is-valid" required>
     </div>
-    <div class="col-md-2 mb-1" id="lastName">
+    <div class="col-md-4 mb-2" id="pass">
       <label for="inputPassword5">Password</label>
       <input type="password" id="password" class="form-control"  required>
     </div>
@@ -31,7 +40,6 @@
 </form>
 <button class="btn btn-primary" id="submitB">Connection</button>
 <div id="temp2"></div>
-<script src="../js/controllers/authentification.js"></script>
-<script>var authentification =  authentification.check()</script>
+</div>
 </body>
 </html>

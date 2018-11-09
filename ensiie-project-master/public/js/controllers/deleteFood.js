@@ -1,7 +1,5 @@
 var deleteFood = (function(){
     function deleteF(context){
-        $("#contener123").fadeOut(0);
-        $("#contener223").fadeOut(0);
         $.get("../views/deleteFood/deleteFood.html",function(html){
             $("#datas").html(html);
         }).then(function(){
@@ -27,7 +25,6 @@ var deleteFood = (function(){
                             var idF = $("#productDelete").find("option:selected").val();
                             var idParent = $("#iduser").text();
                             var idU = idParent.substring(9,idParent.length);
-                       
                             $.post(
                                 "../DeleteFood/deleteFood.php",
                                 {
@@ -39,7 +36,7 @@ var deleteFood = (function(){
                                     {
                                         console.log(messageS);
                                         toastr.success('Product consumed !');
-                                        context.redirect("#/");
+                                        context.redirect("#/look");
                                     }else{
                                         console.log(messageS);
                                         toastr.error('Product didn\'t consumed !');

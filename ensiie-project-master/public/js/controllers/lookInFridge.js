@@ -1,11 +1,12 @@
 var lookIn = (function(){
     function getPromise()
     {
-        $("#contener123").fadeIn(2000);
+        $("#contener123").fadeIn(2000); 
         $("#contener223").fadeIn(2000);
+        
        return new Promise(function (resolve,reject){
             $.get(
-                "../lookInFridge/lookInFridheBody.html",
+                "../views/lookInFridge/lookInFridheBody.html",
                 function (data) {
                     $("#datas").html(data);
                     var nameOfUser = $("#bonjour").text();

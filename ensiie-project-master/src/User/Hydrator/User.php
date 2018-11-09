@@ -22,17 +22,17 @@ class User{
             $data["username"] = $userObject->getUsername();
         }
         if($userObject->getMail()){
-            $data["mail"] = $userObject->getMail();
+            $data["mail"] = $userObject->getMail(); 
         }
         return $data;
     }
     public function hydrate(array $data, \User\Entity\User $emptyEntity):\User\Entity\User{
         $emptyEntity->setId($data["id"]?? null);
-        $emptyEntity->setName($data["name"]?? null);
-        $emptyEntity->setPassword($data["password"] ?? null);
-        $emptyEntity->setUsername($data["lastname"] ?? null);
-        $emptyEntity->setMail($data["username"] ?? null);
-        $emptyEntity->setlastName($data["mail"] ?? null);
+        $emptyEntity->setName($data["nameu"]?? null);
+        $emptyEntity->setPassword($data["passwordp"] ?? null);
+        $emptyEntity->setUsername($data["username"] ?? null);
+        $emptyEntity->setMail($data["mail"] ?? null);
+        $emptyEntity->setlastName($data["lastname"] ?? null);
         return $emptyEntity;
     }
 }

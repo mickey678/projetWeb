@@ -1,8 +1,8 @@
 <?php
 namespace User\Repository;
-include_once '../../src/User/Hydrator/User.php';
-include_once '../../src/Adapter/DatabaseFactory.php';
-include_once '../../src/User/Entity/User.php';
+include_once '../../../src/User/Hydrator/User.php';
+include_once '../../../src/Adapter/DatabaseFactory.php';
+include_once '../../../src/User/Entity/User.php';
 class UserRepository
 {
     /**
@@ -16,26 +16,24 @@ class UserRepository
      */
     public function __construct()
     {
-        $this->hydrator = new \User\Hydrator\Food();
+        $this->hydrator = new \User\Hydrator\User();
         $this->dbAdapter = new \Adapter\DatabaseFactory();
         $this->dbAdapterFunction= $this->dbAdapter->getDbAdapter();
 
     }
 
     public function findByOne($mail,$password){
-        $statement = $this->dbAdapterFunction->prepare('SELECT * FROM "userf"');
-        $users = $statement->execute();
-        $datas = array();
-        $users = $rows->fetchAll(\PDO::FETCH_OBJ);
-        foreach ($users as $user){
-			if($mail == $user->getMail && $password == $user->getPassword()){
-				    $name =$user->getName();
-                    $id=$user->getId();
-                    $datas["name"] = $name;
-                    $datas["id"] = $id;
-				}
+        $user = null;
+        $statement = $this->dbAdapterFunction->prepare('SELECT * FROM "userf" where mail=:mail and passwordp=:password');
+        $statement->bindparam(':mail',$mail);
+        $statement->bindParam(':password',$password);
+        $statement->execute();
+        $rows = $statement->fetchAll();
+        foreach ($rows as $row){
+            $entity = new \User\Entity\User();
+            $user = $this->hydrator->hydrate($row, $entity);
         }
-        return $datas;
+        return $user;
     }
 
     public function fetchAll()
@@ -52,11 +50,11 @@ class UserRepository
                 $user->setMail($row->mail);
             $users[] = $user;
         }
-
         return $users;
     }
 
     public function createUser(User\Entity\User $userObject,$data){
+        $userObject->setId($data["id"] ?? null);
         $userObject->setName($data["name"] ?? null);
         $userObject->setPassword($data["password"] ?? null);
         $userObject->setUsername($data["username"] ?? null);

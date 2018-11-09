@@ -4,33 +4,21 @@ namespace Food\Entity;
 class Food
 {
     /*Integer*/
-    private $Id;
+ 
     /*String*/
-    private $Name;
+    private $name;
     /*String*/
-    private $Type;
+    private $type;
     /*Double*/
-    private $Price;
+    private $price;
     /*Integer*/
-    private $Quantity;
+    private $quantity;
     /*Big Integer*/
     private $codebarre;
     /* date*/
     private $date;
 
-    public function setId($id)
-    {
-        $this->Id = $id;
-        return $this;
-    }
 
-    /**
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->Id;
-    }
 
     public function setName($name)
     {

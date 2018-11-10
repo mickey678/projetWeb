@@ -9,8 +9,8 @@ var deleteFood = (function(){
                         "../lookInFridge/lookInFridge.php",
                         {
                             "nameOfUser":nameOfUser,
-                        },function(dataS){
-                          
+                        },function(dataS){ 
+                           
                             var consumed = dataS.substring(0,13);
                             consumed = JSON.parse(consumed);
                             consumed=consumed[0];
@@ -24,22 +24,22 @@ var deleteFood = (function(){
                         $("#btnDelete").click(function(){
                             var idF = $("#productDelete").find("option:selected").val();
                             var idParent = $("#iduser").text();
-                            var idU = idParent.substring(9,idParent.length);
+                            var idU = idParent.substring(9,idParent.length).trim();
                             $.post(
-                                "../DeleteFood/deleteFood.php",
+                                "../consume/consume.php",
                                 {
-                                    "idF":idF,
-                                    "idU":idU
+                                    "idfood":idF,
+                                    "id":idU
                                 },function(messageS){
+                                    $("#temp").html(messageS);
                                     messageS = messageS.trim();
                                     if(messageS==='')
                                     {
-                                        console.log(messageS);
                                         toastr.success('Product consumed !');
                                         context.redirect("#/look");
                                     }else{
                                         console.log(messageS);
-                                        toastr.error('Product didn\'t consumed !');
+                                        toastr.error('Product didn\'t consume !');
                                     }
                                 }
                             )

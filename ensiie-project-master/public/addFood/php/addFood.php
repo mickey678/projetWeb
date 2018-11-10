@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD']==='POST')
     $foodHydratorUser = new \Food\Hydrator\Food();
     $foodRepositoryUser = new \Food\Repository\Food();
     $view = ['food'=>[]];
-    $name = $_POST["name1"] ?? null;
+    $name = $_POST["name1"] ?? null; 
     $type = $_POST['type1'] ?? null;
     $date = $_POST['date1']?? null;
     $price = $_POST['price1']?? null;

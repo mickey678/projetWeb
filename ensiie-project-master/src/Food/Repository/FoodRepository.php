@@ -22,23 +22,7 @@ class Food
         $this->dbAdapterFunction= $this->dbAdapter->getDbAdapter();
 
     }
-    public function fetchAll()
-    {
-        $rows = $this->connection->query('SELECT * FROM "food" ')->fetchAll(\PDO::FETCH_OBJ);
-        $foods = [];
-        foreach ($rows as $row) {
-            $food = new Food();
-                $food->setId($row->id);
-                $food->setName($row->name);
-                $food->setType($row->type);
-                $food->setType($row->expirationdate);
-                $food->setPrice($row->price);
-                $food->setQuantity($row->quantity);
-                $food->setCodeBarre($row->codebarre);
-            $foods[] = $food;
-        }
-        return $foods;
-    }
+  
     public function createFood(\Food\Entity\Food $food,$idParent){
         try{
             $taskArray = $this->hydrator->extract($food);
@@ -76,17 +60,5 @@ class Food
     }
 }
 
-
-    public function seeAllWasteProducts(){
-        try{
-            $statement=$this->dbAdapter->prepare('select * from "waste")');
-            $statement->execute();
-            $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
-            return json_encode($rows);
-       
-        }catch(PDOException $ex){
-            echo $ex->getMessage();
-        }
-    }
 }
 ?>

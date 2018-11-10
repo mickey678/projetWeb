@@ -1,5 +1,5 @@
-var deleteFood = (function(){
-    function deleteF(context){
+var consumed = (function(){
+    function consume(context){
         $.get("../views/deleteFood/deleteFood.html",function(html){
             $("#datas").html(html);
         }).then(function(){
@@ -25,7 +25,7 @@ var deleteFood = (function(){
                             var idF = $("#productDelete").find("option:selected").val();
                             var idParent = $("#iduser").text();
                             var idU = idParent.substring(9,idParent.length).trim();
-                            $.post(
+                            $.post( 
                                 "../consume/consume.php",
                                 {
                                     "idfood":idF,
@@ -46,10 +46,10 @@ var deleteFood = (function(){
                           
                         })
                     })
-                }
+                } 
             )
         }
     return {
-        deleteF:deleteF,
+        consume:consume,
     }
 }());

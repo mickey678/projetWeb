@@ -6,14 +6,17 @@ class User{
 
     public function extract(\User\Entity\User $userObject):array {
         $data = [];
-        if($userObject->getID()){
-            $data["id"]=$userObject->getId();
+        if($userObject->getId()){
+            $data["id"]->getId();
+        }
+        if($userObject->getGenre()){
+            $data["genre"]=$userObject->getGenre();
         }
         if($userObject->getName()){
-            $data["name"] = $userObject->getName();
+            $data["nameu"] = $userObject->getName();
         }
         if($userObject->getPassword()){
-            $data["password"]=$userObject->getPassword();
+            $data["passwordp"]=$userObject->getPassword();
         }
         if($userObject->getlastName()){
             $data["lastname"] = $userObject->getlastName();
@@ -21,13 +24,14 @@ class User{
         if($userObject->getUsername()){
             $data["username"] = $userObject->getUsername();
         }
-        if($userObject->getMail()){
+        if($userObject->getMail()){ 
             $data["mail"] = $userObject->getMail(); 
         }
         return $data;
     }
-    public function hydrate(array $data, \User\Entity\User $emptyEntity):\User\Entity\User{
-        $emptyEntity->setId($data["id"]?? null);
+    public function hydrate(array $data, \User\Entity\User $emptyEntity){
+        $emptyEntity->setId($data["id"] ?? null);
+        $emptyEntity->setGenre($data["genre"]?? null);
         $emptyEntity->setName($data["nameu"]?? null);
         $emptyEntity->setPassword($data["passwordp"] ?? null);
         $emptyEntity->setUsername($data["username"] ?? null);

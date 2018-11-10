@@ -21,7 +21,7 @@ class Food{
         if($foodObject->getPrice()){
             $data["price"]=$foodObject->getPrice();
         }
-        if($foodObject->getType()){
+        if($foodObject->getType()){ 
             $data["type"] = $foodObject->getType();
         }
         if($foodObject->getQuantity()){

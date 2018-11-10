@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD']==='POST')
     $date = $_POST['date1']?? null;
     $price = $_POST['price1']?? null;
     $quantity = $_POST['quantity1']?? null;
-    $codeBarre = $_POST['codeBarre']??null;
+    $codeBarre = $_POST['codeBarre']??null;  
     $idParent = $_POST["idParent"];
 
 

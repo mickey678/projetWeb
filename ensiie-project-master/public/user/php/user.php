@@ -4,18 +4,8 @@
   include_once '../../../src/User/Entity/User.php';
 if($_SERVER['REQUEST_METHOD']==='POST')
 { 
-$name = $_POST["name"] ?? null;
-$lastname=$_POST["lastname"] ?? null;
-$username = $_POST["username"] ?? null ;
 $password = $_POST["password"] ?? null;
 $mail = $_POST["mail"] ?? null;
-$datas = [
-	'mail'=>$mail,
-	'name'=>$name,
-	'lastname'=>$lastname,
-	'password'=>$password,
-	'username'=>$username
-];
 $user = new User\Repository\UserRepository();
 $userDatas = $user->findByOne($mail,$password);
 $name = $userDatas->getName();

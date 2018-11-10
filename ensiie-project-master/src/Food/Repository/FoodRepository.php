@@ -25,7 +25,7 @@ class Food
   
     public function createFood(\Food\Entity\Food $food,$idParent){
         try{
-            $taskArray = $this->hydrator->extract($food);
+            $taskArray = $this->hydrator->extract($food); 
             $statement = $this->dbAdapterFunction->prepare('INSERT INTO "food"(Namef,Typet,ExpirationDate,Price,Quantity,CodeBarre) VALUES(:name,:type,:date,:price,:quantity,:codebarre) returning idFood');
             $statement->bindParam(':name',$taskArray["name"]);
             $statement->bindParam(':type',$taskArray["type"]);

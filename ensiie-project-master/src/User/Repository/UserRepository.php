@@ -33,7 +33,7 @@ class UserRepository
             $entity = new \User\Entity\User();
             $user = $this->hydrator->hydrate($row, $entity);
         }
-        return $user;
+        return $user; 
     }
 
     public function fetchAll()
@@ -51,16 +51,26 @@ class UserRepository
             $users[] = $user;
         }
         return $users;
-    }
+    } 
 
-    public function createUser(User\Entity\User $userObject,$data){
-        $userObject->setId($data["id"] ?? null);
-        $userObject->setName($data["name"] ?? null);
-        $userObject->setPassword($data["password"] ?? null);
-        $userObject->setUsername($data["username"] ?? null);
-        $userObject->setMail($data["mail"] ?? null);
-        $userObject->setLastName($data["lastname"] ?? null);
-        return $userObject;
+    public function createUser(\User\Entity\User $userObject,$genreTable,$idGenre){
+        try{
+            $taskArray = $this->hydrator->extract($userObject);
+            $statement = $this->dbAdapterFunction->prepare('INSERT INTO "userf"(nameu,passwordp,lastname,username,mail) VALUES(:nameu,:passwordp,:lastname,:username,:mail) returning id');
+            $statement->bindParam(':nameu',$taskArray["nameu"]);
+            $statement->bindParam(':lastname',$taskArray["lastname"]);
+            $statement->bindParam(':passwordp',$taskArray["passwordp"]);
+            $statement->bindParam(':username',$taskArray["username"]);
+            $statement->bindParam(':mail',$taskArray["mail"]);
+            $statement->execute();
+            $lastId = $this->dbAdapterFunction->lastInsertId();
+            $statement=$this->dbAdapterFunction->prepare('INSERT INTO '.$genreTable.'('.$idGenre.')VALUES (:lastId)');
+            $statement->bindParam(':lastId',$lastId);
+            $statement->execute();
+            echo 'Success';
+        }catch(PDOException $ex){
+            echo $ex->getMessage();
+        }
 
     }
 

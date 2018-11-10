@@ -3,17 +3,15 @@ namespace User\Entity;
 
 class User
 {
-    /**
-     * @var int
-     */
+
     private $id;
 
     /**
      * @var string
      */
-    private $name;
+    private $nameu;
 
-    private $password;
+    private $passwordp;
 
     /**
      * @var string
@@ -32,27 +30,24 @@ class User
     /**
      * @return int
      */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     * @return User
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
-    }
+    private $genre;
 
     /**
      * @return string
      */
+
+
+     public function setId($id){
+         $this->id=$id;
+         return $this;
+     }
+     public function getId(){
+         return $this->id;
+     }
+
     public function getName()
     {
-        return $this->name;
+        return $this->nameu;
     }
 
     /**
@@ -61,7 +56,7 @@ class User
      */
     public function setName($name)
     {
-        $this->name = $name;
+        $this->nameu = $name;
         return $this;
     }
 
@@ -113,20 +108,28 @@ class User
     
     public function setMail($mail)
     {
-        return $this->mail = $mail;
+         $this->mail = $mail;
+         return $this;
     }
 
 
     public function getPassword()
     {
-        return $this->password;
+        return $this->passwordp;
     }
     
     public function setPassword($password)
     {
-        return $this->password = $password;
+         $this->passwordp = $password;
+         return $this;
     }
 
-
+public function setGenre($genre){
+    $this->genre=$genre;
+    return $this;
+}
+public function getGenre(){
+    return $this->genre;
+}
 }
 

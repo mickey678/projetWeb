@@ -71,7 +71,6 @@ body{
     border-radius: 10px;
     width:140px;
     height: 490px;
-    position: absolute;
     left:0px;
     font-family: 'Cookie', cursive;
 
@@ -102,7 +101,6 @@ body{
     width: 120px;
     height: 110px;
     z-index: 1;
-    position: absolute;
     font-size:28px;
     left:10px;
     top:10px;
@@ -123,6 +121,12 @@ body{
     left:10px;
     top:125px;
     text-align: center;
+}
+#inscription{
+    position: absolute;
+    top:180px;
+    left:62%;
+
 }
 #datas{
     position: absolute;

@@ -7,7 +7,7 @@ var consumed = (function(){
                     nameOfUser=nameOfUser.substring(8,nameOfUser.length); 
                     $.post(
                         "../lookInFridge/lookInFridge.php",
-                        {
+                        { 
                             "nameOfUser":nameOfUser,
                         },function(dataS){ 
                             var m = 1223;

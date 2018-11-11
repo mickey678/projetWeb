@@ -17,7 +17,7 @@ class Spent{
         return  $row;
     }catch(PDOException $ex){
         echo $ex->getMessage();
-    }
+    } 
   }
   public function seeAllProducts(){
     try{
@@ -30,6 +30,23 @@ class Spent{
         echo $ex->getMessage();
     }
   }
+
+  public function printJustWasteProducts($idUser){
+      try{
+         $statement = $this->dbAdapterFunction->prepare(
+          'select distinct namef,typet,price,expirationdate from "food" inner 
+          join "waste" on food.idfood = waste.idfood inner join "userf" 
+          on Userf.id = waste.id where userf.id =:idUser');
+          $statement->bindParam(':idUser',$idUser);
+        $statement->execute();
+        $products = $statement->fetchAll();
+          return $products;
+      }catch(PDOException $ex)
+      {
+          echo $ex->getMessage();
+      }
+  }
+  
 
 }
 

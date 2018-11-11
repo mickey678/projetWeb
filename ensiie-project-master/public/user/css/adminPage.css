@@ -136,6 +136,11 @@ body{
     height: 550px;
     width: 700px;
 }
+#wasteProduct12{
+    position: absolute;
+   top:150px;
+
+}
 #deleteFood{
     position: absolute;
     top:240px;

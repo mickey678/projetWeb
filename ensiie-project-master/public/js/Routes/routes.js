@@ -1,5 +1,6 @@
 (function () {
     var sammy = Sammy('#body',function () {
+      
         this.get("#/",authentification.check);
         this.get("#/look",lookIn.look);
         this.get("#/addFood",addFood.addAFood);  
@@ -10,5 +11,6 @@
 });  
         $(function () {
             sammy.run("#/");
-        });           
+        });        
+        sammy.refresh();   
 }());

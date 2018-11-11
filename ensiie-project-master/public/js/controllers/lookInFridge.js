@@ -16,22 +16,21 @@ var lookIn = (function(){
                         {
                             "nameOfUser":nameOfUser,
                         },function(dataS){
-                            var consumed = dataS.substring(0,13);
-                            consumed = JSON.parse(consumed);
-                            consumed=consumed[0];
-                            $("#consumed").html("Number of product : " +consumed.count);
-                            var returnJSON = JSON.parse(dataS.substring(13,dataS.length));      
+                            var consumedJSON = JSON.parse(dataS);
+                            var availableProducts = JSON.parse(consumedJSON.available);
+                            $("#consumed").html(availableProducts[0].count+" products in fridge");
+                            var productsInFridge = JSON.parse(consumedJSON.datasFridge);
                             $("#tbody").html(" ");
-                            $("#produitsDispo").html("Number of product : " + returnJSON.length);
-                            for(var i=0;i<returnJSON.length;i++){
+                            $("#produitsDispo").html(productsInFridge.length+ " products in fridge");
+                            for(var i=0;i<productsInFridge.length;i++){
                                 $("#tbody").append("<tr>");
-                                $("#tbody").append("<th scope='row'>"+returnJSON[i].idfood+"</th>");
-                                $("#tbody").append("<td>"+returnJSON[i].namef+"</td>");
-                                $("#tbody").append("<td>"+returnJSON[i].typet+"</td>");
-                                $("#tbody").append("<td>"+returnJSON[i].price+"</td>");
-                                $("#tbody").append("<td>"+returnJSON[i].expirationdate+"</td>");
-                                $("#tbody").append("<td>"+returnJSON[i].quantity+"</td>");
-                                $("#tbody").append("<td>"+returnJSON[i].codebarre+"</td>");
+                                $("#tbody").append("<th scope='row'>"+productsInFridge[i].idfood+"</th>");
+                                $("#tbody").append("<td>"+productsInFridge[i].namef+"</td>");
+                                $("#tbody").append("<td>"+productsInFridge[i].typet+"</td>");
+                                $("#tbody").append("<td>"+productsInFridge[i].price+"</td>");
+                                $("#tbody").append("<td>"+productsInFridge[i].expirationdate+"</td>");
+                                $("#tbody").append("<td>"+productsInFridge[i].quantity+"</td>");
+                                $("#tbody").append("<td>"+productsInFridge[i].codebarre+"</td>");
                                 $("#tbody").append("</tr>");
                             }
                         }

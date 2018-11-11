@@ -10,12 +10,15 @@ var consumed = (function(){
                         {
                             "nameOfUser":nameOfUser,
                         },function(dataS){ 
-                           
-                            var consumed = dataS.substring(0,13);
-                            consumed = JSON.parse(consumed);
-                            consumed=consumed[0];
-                            $("#consumed").html("Number of product : " +consumed.count);
-                            var products = JSON.parse(dataS.substring(13,dataS.length));  
+                            var m = 1223;
+                            console.log(new Date(m));
+                            var consumedJSON = JSON.parse(dataS);
+                            var productsAvailable = consumedJSON.available;
+                            productsAvailable = JSON.parse(productsAvailable);
+
+                            $("#consumed").html(productsAvailable[0].count +" products in fridge");
+                            var productsInFridge = JSON.parse(consumedJSON.datasFridge);
+                            var products = productsInFridge;  
                             for(var k=0;k<products.length;k++){
                                 $("#datas").append($("#productDelete").append("<option value="+products[k].idfood+">"+products[k].namef+", exp. date : "+products[k].expirationdate+", quantity : "+products[k].quantity+", code barre : "+ products[k].codebarre+"</option>"));
                                }

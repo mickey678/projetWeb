@@ -5,7 +5,10 @@ if($_SERVER['REQUEST_METHOD']==='POST')
     $fridge = new \Fridge\Repository\Fridge();
     $rows = $fridge->lookInFridge();
     $available = $fridge->Consumed();
-    echo $available;
-    echo $rows;
+    $datas = [
+        'available'=>$available,
+        'datasFridge'=>$rows
+    ];
+    echo json_encode($datas);
 }
 ?>

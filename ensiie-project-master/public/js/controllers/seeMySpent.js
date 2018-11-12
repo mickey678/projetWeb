@@ -17,14 +17,20 @@ var seeMySpent = (function(){
                 'food':"food",
                 'idUser':idUser
             },function(number){
+             
                 var datas = JSON.parse(number);
                 $("#waste").html("Number of product : "+ datas.countWaste);
                 $("#spent").html("You spent : "+datas.price.toString().substring(0,6)+" euros");
                 var productsInFridge = datas.wasteProducts[0];
-                var products = datas.wasteProducts
+                var products = datas.wasteProducts;
+                var consumed = datas.consumedProducts;
                 for(var k=0;k<datas.wasteProducts.length;k++){
                  
                     $("#datas").append($("#wasteProduct12").append("<option value="+products[k].idfood+">"+products[k].namef+", exp. date : "+products[k].expirationdate+",price :"+products[k].price+"</option>"));
+                   }
+                   for(var k=0;k<consumed.length;k++){
+                 
+                    $("#datas").append($("#consumed123").append("<option value="+consumed[k].idfood+">"+consumed[k].namef+", exp. date : "+consumed[k].expirationdate+",price :"+consumed[k].price+"</option>"));
                    }
             }
             )

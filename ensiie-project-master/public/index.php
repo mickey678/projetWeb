@@ -1,3 +1,6 @@
+<?php
+//require 'sendMail/sendMail.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>

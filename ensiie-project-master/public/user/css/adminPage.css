@@ -141,6 +141,10 @@ body{
    top:150px;
 
 }
+#consumed123{
+    position: absolute;
+    top:190px;
+}
 #deleteFood{
     position: absolute;
     top:240px;

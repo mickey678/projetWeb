@@ -10,6 +10,8 @@ if($_SERVER['REQUEST_METHOD']==='POST')
     $spentMoney = $food->seeAllProducts();
     $price=0;
     $wasteProduct = $food->printJustWasteProducts($idUser);
+    $consumedProduct = $food->printJustConsummedProducts($idUser);
+
   
     foreach($spentMoney as $money)
     {
@@ -19,7 +21,8 @@ if($_SERVER['REQUEST_METHOD']==='POST')
     $datas = [
         'countWaste'=>count($waste),
         'price'=>$price,
-        'wasteProducts'=>$wasteProduct
+        'wasteProducts'=>$wasteProduct,
+        'consumedProducts'=>$consumedProduct
     ];
  echo json_encode($datas);
   
